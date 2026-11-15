@@ -1,172 +1,385 @@
-body {
-    background-color: #f1eace;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
+/* Советы: поиск, карточки и замены ингредиентов */
+
+.suggestion-copy > p {
+  font-size: 13px;
+  color: var(--muted);
 }
 
-.site-header {
-    background: #ffffff;
-    border-bottom: 1px solid #eaeaea;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+.tip-item {
+  min-width: 0;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.swap-result p {
+  font-size: 13px;
 }
 
-.logo {
-    font-size: 22px;
-    color: #3d5240;
-    font-weight: bold;
-    margin: 0;
+#tipsContactForm > .mb-3,
+.substitutions-card .section-heading {
+  margin-bottom: 12px;
 }
 
-.nav-links a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 15px;
+.substitutions-card > p {
+  margin-bottom: 20px;
 }
 
-.nav-links a.active, .nav-links a:hover {
-    color: #3d5240;
-    border-bottom: 2px solid #3d5240;
-    padding-bottom: 3px;
+.substitutions-card {
+  padding: 25px;
 }
 
-.main-content {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 15px;
+#searchCounter {
+  font-size: 12px;
+  margin-top: 8px;
 }
 
-.tips-hero {
-    background: #fff0f3;
-    border: 2px dashed #889f77;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 30px;
+#tipsContainer {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: #ff758c;
-    color: white;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.tips-hero h2 {
-    color: #3d5240;
-    font-size: 26px;
-    margin-bottom: 8px;
-}
-
-.card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-}
+/* Карточки советов */
 
 .tip-card {
-    background-color: #fff0f3;
-    border: 2px dashed #889f77;
-    border-radius: 12px;
-    padding: 20px;
-    height: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tip-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(61, 82, 64, 0.12);
-}
-
-.tip-card h4 {
-    color: #3d5240;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  height: 100%;
 }
 
 .tip-card p {
-    color: #444;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0;
+  margin: 0;
+  color: var(--muted);
 }
 
-.custom-table {
-    margin-top: 10px;
-    border-radius: 8px;
-    overflow: hidden;
+.substitutions-card > p {
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.custom-table thead {
-    background-color: #eef3ec;
-    color: #3d5240;
+@media (max-width: 900px) {
+  #tipsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.custom-table th {
-    border-bottom: 2px solid #3d5240;
-    padding: 12px;
+/* Поиск советов */
+
+.search-card {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  column-gap: 30px;
 }
 
-.custom-table td {
-    padding: 12px;
-    vertical-align: middle;
+.search-card h2 {
+  grid-row: 1/4;
+  margin: 0;
+  align-self: center;
 }
 
-.btn-success {
-    background-color: #3d5240 !important;
-    border-color: #3d5240 !important;
+.tip-card h3 {
+  line-height: 1.25;
 }
 
-.btn-success:hover {
-    background-color: #2d4030 !important;
-    border-color: #2d4030 !important;
+.tip-label {
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
-/* Красная подсветка ошибок для формы */
-.is-invalid {
-    border-color: #dc3545 !important;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+.substitutions-card h2 {
+  font-size: 28px;
 }
 
-.is-valid {
-    border-color: #198754 !important;
+@media (max-width: 600px) {
+  #tipsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .search-card {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+
+  .search-card h2 {
+    grid-row: auto;
+    margin-bottom: 18px;
+  }
 }
 
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 8px 10px;
-    }
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 5px;
-    }
-    .nav-links a {
-        margin: 0 5px;
-        font-size: 13px;
-    }
+.search-card h2 .k-icon {
+  width: 27px;
+  height: 27px;
+}
+
+.tip-item:nth-child(2n) .tip-symbol {
+  background: var(--warm);
+}
+
+.search-card {
+  padding: 22px 25px;
+}
+
+.search-card h2 {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  font-size: 22px;
+}
+
+.tip-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 23px;
+  min-height: 260px;
+}
+
+.tip-symbol {
+  position: absolute;
+  top: 22px;
+  left: 23px;
+  width: 43px;
+  height: 43px;
+}
+
+.tip-label {
+  margin: 0 0 19px 56px;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+
+.tip-card h3 {
+  font-family: inherit;
+  font-size: 20px;
+  margin: 0 0 12px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+
+.tip-card p {
+  line-height: 1.7;
+  margin-bottom: 19px;
+}
+
+.tip-takeaway {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tip-takeaway .k-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.substitutions-card .section-heading h2 {
+  font-size: 24px;
+}
+
+/* Замены ингредиентов */
+
+.swaps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.swap-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1.25fr);
+  align-items: center;
+  gap: 15px 12px;
+  padding: 19px;
+}
+
+.swap-source {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swap-source .icon-tile {
+  width: 33px;
+  height: 37px;
+  border-radius: 8px;
+}
+
+.swap-source .k-icon {
+  width: 23px;
+  height: 23px;
+}
+
+.swap-source h3 {
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.swap-source span:not(.icon-tile) {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.swap-arrow {
+  width: 19px;
+  height: 19px;
+  color: var(--green);
+}
+
+.swap-result .mini-label {
+  font-size: 8px;
+  margin-bottom: 4px;
+}
+
+.swap-result p {
+  margin: 0;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.swap-note {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--line);
+  padding-top: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Предложение темы */
+
+.suggestion-card {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 40px;
+  padding: 27px;
+}
+
+.suggestion-copy {
+  border-right: 1px solid var(--line);
+  padding-right: 28px;
+}
+
+.suggestion-mark {
+  margin-bottom: 18px;
+  transform: rotate(-5deg);
+}
+
+.suggestion-copy h2 {
+  font-size: 23px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.topic-prompts {
+  margin-top: 23px;
+}
+
+.topic-prompts > button {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+#tipsContactForm {
+  max-width: none;
+}
+
+#tipsContactForm textarea {
+  min-height: 115px;
+}
+
+@media (max-width: 950px) {
+  .suggestion-card {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 850px) {
+  .swaps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .suggestion-card {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    padding: 22px;
+  }
+
+  .suggestion-copy {
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 22px;
+  }
+
+  .suggestion-copy > p {
+    max-width: 450px;
+  }
+
+  .topic-prompts {
+    margin-top: 16px;
+  }
+
+  .topic-prompts > button {
+    width: auto;
+    display: inline-flex;
+    margin-right: 4px;
+  }
+
+  .suggestion-mark {
+    float: left;
+    margin: 0 13px 7px 0;
+  }
+
+  .tip-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .swap-source .icon-tile {
+    display: none;
+  }
+
+  .substitutions-card {
+    padding: 20px;
+  }
+
+  .tip-card {
+    padding: 22px;
+  }
+
+  .swap-card {
+    padding: 15px;
+    gap: 12px 8px;
+  }
+}
+
+.swap-source h3,
+.tip-card p {
+  font-size: 14px;
+}
+
+.swap-note {
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .swap-result p {
+    font-size: 12px;
+  }
+
+  .swap-note {
+    font-size: 11px;
+  }
 }

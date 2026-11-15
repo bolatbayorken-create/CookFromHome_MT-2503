@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile — CookFromHome</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/account.css" />
+  </head>
+  <body class="page-account">
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-topbar">
+      <div class="container header-content">
+        <a href="index.html" class="logo">CookFromHome</a>
+        <nav aria-label="Main navigation">
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
+        </nav>
+        <button
+          id="theme-button"
+          class="theme-toggle btn btn--quiet btn--sm"
+          type="button"
+          aria-pressed="false"
+          aria-label="Switch to dark theme"
+        >
+          Dark theme
+        </button>
+      </div>
+    </header>
+    <main id="main-content" class="site-content account-layout">
+      <section class="page-intro">
+        <div class="intro-title">
+          <span class="icon-tile page-mark"><span class="k-icon" data-icon="hat" aria-hidden="true"></span></span>
+          <div>
+            <span class="eyebrow">Your kitchen account</span>
+            <h1>Profile</h1>
+          </div>
+        </div>
+        <p>Your local CookFromHome account.</p>
+      </section>
+      <div class="account-tabs" aria-label="Account pages">
+        <a href="signup.html" class="btn btn--quiet btn--sm">Sign Up</a>
+        <a href="login.html" class="btn btn--quiet btn--sm">Log In</a>
+        <a href="profile.html" class="btn btn--quiet btn--sm" aria-current="page">Profile</a>
+      </div>
+      <section class="account-card panel" id="profileDetails" hidden>
+        <h2>Your details</h2>
+        <p>This is the account saved in this browser.</p>
+        <dl class="profile-list">
+          <dt>Name</dt>
+          <dd id="profile-name"></dd>
+          <dt>Email</dt>
+          <dd id="profile-email"></dd>
+          <dt>Phone number</dt>
+          <dd id="profile-phone"></dd>
+        </dl>
+        <button id="logout-button" class="btn btn--quiet" type="button">Log Out</button>
+        <p class="alert" id="logout-status" role="status" hidden></p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <h2>CookFromHome</h2>
+        <p>Cook by yourself :3</p>
+      </div>
+    </footer>
+    <script src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/components/validation.js"></script>
+    <script src="js/pages/account.js"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "recipe-lagman",
+    "url": "https://getcookmatch.com/images/og/lagman.jpg",
+    "file": "recipe-lagman.jpg",
+    "downloaded": false
+  },
+  {
+    "id": "recipe-baursak",
+    "url": "https://iapn.kz/upload/iblock/0d8/0d8f2453ea1fe779102e8a6ccf861a76.jpg",
+    "file": "recipe-baursak.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-shelpek",
+    "url": "https://img.iamcook.ru/old/upl/recipes/cat/u-bb00f439c0838b5ca7273407fbbe7254.jpg",
+    "file": "recipe-shelpek.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-beshbarmak",
+    "url": "https://i.pinimg.com/736x/cb/19/41/cb1941af26d7bb88349c5641f69ae9c1.jpg",
+    "file": "recipe-beshbarmak.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-kuyrdak",
+    "url": "https://magnum.kz:1337/uploads/Kuyrdak_5dac8afe42.jpg",
+    "file": "recipe-kuyrdak.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-manti",
+    "url": "https://arbuz.com/wp-content/uploads/2010/03/Manti.jpg",
+    "source_page": "https://arbuz.com/recipes/manti-meat-dumpling-recipe/",
+    "file": "recipe-manti.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-samsa",
+    "url": "https://arbuz.com/wp-content/uploads/2017/08/Samsa-Recipe-46.jpg",
+    "source_page": "https://arbuz.com/recipes/samsa-recipe/",
+    "file": "recipe-samsa.jpg",
+    "downloaded": true
+  },
+  {
+    "id": "recipe-plov",
+    "url": "https://arbuz.com/wp-content/uploads/2009/12/Uzbek-Palov.jpg",
+    "source_page": "https://arbuz.com/recipes/uzbek-palov-osh-recipe/",
+    "file": "recipe-plov.jpg",
+    "downloaded": true
+  }
+]

@@ -1,117 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CookFromHome - Planner</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/site-polish.css">
-    <link rel="stylesheet" href="css/planner.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/site-layout.css">
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-    <!-- HEADER -->
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/planner.css" />
+  </head>
+  <body>
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-topbar">
-    <div class="container header-content">
+      <div class="container header-content">
         <a href="index.html" class="logo">CookFromHome</a>
         <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="planner.html" aria-current="page">Planner</a>
-            <a href="tips.html">Tips</a>
-            <a href="pantry.html">Pantry</a>
-            <a href="forms.html">Forms</a>
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
         </nav>
-        <button id="theme-button" class="theme-toggle" type="button"
-                aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
-    </div>
-</header>
-
-    <!-- MAIN CONTENT -->
-    <main class="planner-wrapper" id="main-content">
-      <header class="planner-header-box">
-        <h2>Weekly Meal Plan 🥗</h2>
-        <p>Customize your diet and manage your shopping list with ease</p>
-      </header>
-
+        <button id="theme-button" class="theme-toggle btn btn--quiet btn--sm" type="button" aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
+      </div>
+    </header>
+    <main class="planner-wrapper site-content" id="main-content">
+      <section class="page-intro">
+        <div class="intro-title">
+          <span class="icon-tile page-mark">
+            <span class="k-icon" data-icon="calendar" aria-hidden="true"></span>
+          </span>
+          <div>
+            <span class="eyebrow">Your week, organised</span>
+            <h1>Meal planner</h1>
+          </div>
+        </div>
+        <p>Choose a period, review the meals and keep a shopping list.</p>
+      </section>
+      <section class="cook-next panel" id="cook-next" aria-labelledby="cook-next-title">
+        <div class="cook-next-heading">
+          <div class="section-heading">
+            <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            <div>
+              <span class="mini-label">Your kitchen notebook</span>
+              <h2 id="cook-next-title">Cook next</h2>
+            </div>
+          </div>
+          <a href="recipes.html" class="btn btn--quiet btn--sm">
+            Browse recipes
+            <span class="k-icon" data-icon="arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="recipe-picks" class="recipe-picks"></div>
+        <p class="supporting-text">Your recipe shortlist, saved in this browser.</p>
+      </section>
       <div class="planner-grid-layout">
-        <section id="daysContainer">
+        <section aria-label="Daily meals">
+          <p class="planner-hint">
+            <span class="k-icon" data-icon="check" aria-hidden="true"></span>
+            Select a meal to mark it as eaten. Your plan and shopping list are saved in this
+            browser.
+          </p>
+          <div id="daysContainer"></div>
         </section>
-
         <aside>
-          <div class="sidebar-card">
-            <h3>⚙️ Plan Settings</h3>
+          <div class="sidebar-card panel panel--brand">
+            <h2>
+              <span class="k-icon" data-icon="calendar" aria-hidden="true"></span>
+              Plan settings
+            </h2>
             <div class="form-field">
               <label for="daysSelect">Period:</label>
               <select id="daysSelect">
                 <option value="7" selected>7 Days (Full Week)</option>
                 <option value="5">5 Days (Weekdays)</option>
-                <option value="3">3 Days (Weekend)</option>
+                <option value="3">3 Days (Fri–Sun)</option>
               </select>
             </div>
-
             <div class="form-field">
               <label for="targetCalories">Target (kcal/day):</label>
-              <input type="number" id="targetCalories" value="2000" step="50">
+              <input type="number" id="targetCalories" aria-describedby="plan-feedback" value="2000" min="1000" max="5000" step="1" required />
             </div>
-
-            <button type="button" class="btn-action">Update Plan</button>
+            <button type="button" class="btn-action btn btn--block">
+              Update plan
+              <span class="k-icon" data-icon="arrow" aria-hidden="true"></span>
+            </button>
+            <p id="plan-feedback" role="status"></p>
+            <p class="supporting-text">Calorie figures are sample estimates.</p>
           </div>
-
-          <div class="sidebar-card">
-            <h3>
-              🛒 Grocery List
-              <span id="progressTracker" class="progress-text">0/0 completed</span>
-            </h3>
-            
+          <div class="sidebar-card panel panel--accent">
+            <h2>
+              <span class="k-icon" data-icon="bag" aria-hidden="true"></span>
+              Shopping list
+            </h2>
             <div class="add-item-box">
-              <input type="text" id="customInput" aria-label="New grocery item" placeholder="Add an item...">
-              <button type="button" class="btn-add">+ Add</button>
+              <input type="text" id="customInput" maxlength="80" aria-label="New grocery item" placeholder="Add an item..." />
+              <button type="button" class="btn-add btn btn--sm">+ Add</button>
             </div>
-
+            <p id="grocery-feedback" class="supporting-text" role="status" aria-live="polite"></p>
             <div id="checklistGroup">
               <div class="checklist-row">
                 <div class="checklist-left">
-                  <input type="checkbox" id="item1">
+                  <input type="checkbox" id="item1" />
                   <label for="item1">Cottage cheese (400g)</label>
                 </div>
-                <button type="button" class="btn-delete-item" aria-label="Remove grocery item">×</button>
+                <button type="button" class="btn-delete-item btn btn--plain btn--icon btn--sm" aria-label="Remove grocery item">×</button>
               </div>
-
               <div class="checklist-row">
                 <div class="checklist-left">
-                  <input type="checkbox" id="item2">
+                  <input type="checkbox" id="item2" />
                   <label for="item2">Chicken breast (1 kg)</label>
                 </div>
-                <button type="button" class="btn-delete-item" aria-label="Remove grocery item">×</button>
+                <button type="button" class="btn-delete-item btn btn--plain btn--icon btn--sm" aria-label="Remove grocery item">×</button>
               </div>
-
               <div class="checklist-row">
                 <div class="checklist-left">
-                  <input type="checkbox" id="item3">
+                  <input type="checkbox" id="item3" />
                   <label for="item3">Fresh greens & avocado</label>
                 </div>
-                <button type="button" class="btn-delete-item" aria-label="Remove grocery item">×</button>
+                <button type="button" class="btn-delete-item btn btn--plain btn--icon btn--sm" aria-label="Remove grocery item">×</button>
               </div>
             </div>
           </div>
         </aside>
       </div>
     </main>
-
-    <!-- FOOTER -->
     <footer class="site-footer">
-    <div class="container footer-content">
+      <div class="container footer-content">
         <h2>CookFromHome</h2>
         <p>Cook by yourself :3</p>
-    </div>
-</footer>
-
-    <!-- JAVASCRIPT -->
+      </div>
+    </footer>
     <script src="js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="js/planner.js"></script>
-    <script src="js/site.js"></script>
-</body>
+    <script src="js/core/storage.js"></script>
+    <script src="js/components/cook-next.js"></script>
+    <script src="js/data/meal-plan.js"></script>
+    <script src="js/pages/planner.js"></script>
+  </body>
 </html>

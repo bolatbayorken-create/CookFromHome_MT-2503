@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — CookFromHome</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/account.css" />
+  </head>
+  <body class="page-account">
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-topbar">
+      <div class="container header-content">
+        <a href="index.html" class="logo">CookFromHome</a>
+        <nav aria-label="Main navigation">
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
+        </nav>
+        <button
+          id="theme-button"
+          class="theme-toggle btn btn--quiet btn--sm"
+          type="button"
+          aria-pressed="false"
+          aria-label="Switch to dark theme"
+        >
+          Dark theme
+        </button>
+      </div>
+    </header>
+    <main id="main-content" class="site-content account-layout">
+      <section class="page-intro">
+        <div class="intro-title">
+          <span class="icon-tile page-mark"><span class="k-icon" data-icon="hat" aria-hidden="true"></span></span>
+          <div>
+            <span class="eyebrow">Your kitchen account</span>
+            <h1>Sign Up</h1>
+          </div>
+        </div>
+        <p>Create an account to try your local kitchen profile.</p>
+      </section>
+      <div class="account-tabs" aria-label="Account pages">
+        <a href="signup.html" class="btn btn--quiet btn--sm" aria-current="page">Sign Up</a>
+        <a href="login.html" class="btn btn--quiet btn--sm">Log In</a>
+        <a href="profile.html" class="btn btn--quiet btn--sm">Profile</a>
+      </div>
+      <section class="account-card panel">
+        <h2>Create your account</h2>
+        <p>Local demo for this browser. Use a test password.</p>
+        <form id="signupForm" method="post" novalidate>
+          <div class="form-field">
+            <label for="account-name">Name</label>
+            <input
+              id="account-name"
+              name="name"
+              type="text"
+              required
+              maxlength="80"
+              autocomplete="name"
+              data-check="name"
+              data-error="name-error"
+              aria-describedby="name-error"
+            />
+            <p class="text-danger" id="name-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="form-field">
+            <label for="account-email">Email</label>
+            <input
+              id="account-email"
+              name="email"
+              type="email"
+              required
+              maxlength="254"
+              autocomplete="email"
+              data-check="email"
+              data-error="email-error"
+              aria-describedby="email-error"
+            />
+            <p class="text-danger" id="email-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="form-field">
+            <label for="account-phone">Phone number</label>
+            <input
+              id="account-phone"
+              name="phone"
+              type="tel"
+              required
+              maxlength="30"
+              autocomplete="tel"
+              data-check="phone"
+              data-error="phone-error"
+              aria-describedby="phone-error phone-hint"
+            />
+            <p class="form-text" id="phone-hint">10–15 digits. For example +7 701 123 4567.</p>
+            <p class="text-danger" id="phone-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="form-field">
+            <label for="account-password">Password</label>
+            <input
+              id="account-password"
+              name="password"
+              type="password"
+              required
+              maxlength="64"
+              autocomplete="new-password"
+              data-check="password"
+              data-error="password-error"
+              aria-describedby="password-error password-hint"
+            />
+            <p class="form-text" id="password-hint">8–64 characters: uppercase and lowercase letters and a number.</p>
+            <p class="text-danger" id="password-error" aria-live="polite" hidden></p>
+          </div>
+          <div class="form-field">
+            <label for="account-confirm">Confirm password</label>
+            <input
+              id="account-confirm"
+              name="confirm"
+              type="password"
+              required
+              maxlength="64"
+              autocomplete="new-password"
+              data-check="confirm"
+              data-error="confirm-error"
+              aria-describedby="confirm-error"
+            />
+            <p class="text-danger" id="confirm-error" aria-live="polite" hidden></p>
+          </div>
+          <button class="btn" type="submit">Sign Up</button>
+          <p class="alert" data-form-status role="status" hidden></p>
+        </form>
+        <p class="account-footer">
+          Already registered?
+          <a href="login.html">Log In</a>
+        </p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <h2>CookFromHome</h2>
+        <p>Cook by yourself :3</p>
+      </div>
+    </footer>
+    <script src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="js/core/storage.js"></script>
+    <script src="js/components/validation.js"></script>
+    <script src="js/pages/account.js"></script>
+  </body>
+</html>

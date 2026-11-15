@@ -1,171 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tips & Hacks — CookFromHome</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/tips.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/site-polish.css">
-    <link rel="stylesheet" href="css/site-layout.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/tips.css" />
+  </head>
+  <body class="page-tips">
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-topbar">
-    <div class="container header-content">
+      <div class="container header-content">
         <a href="index.html" class="logo">CookFromHome</a>
         <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="planner.html">Planner</a>
-            <a href="tips.html" aria-current="page">Tips</a>
-            <a href="pantry.html">Pantry</a>
-            <a href="forms.html">Forms</a>
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
         </nav>
-        <button id="theme-button" class="theme-toggle" type="button"
-                aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
-    </div>
-</header>
-
-    <main class="container main-content">
-        <section class="tips-hero text-center mb-4">
-            <div class="hero-badge">Kitchen Wisdom</div>
-            <h2>Kitchen Tips & Food Hacks</h2>
-            <p>Master essential culinary skills, learn how to store ingredients properly, and discover smart substitutions.</p>
-        </section>
-
-        <section class="search-card card p-4 mb-4">
-            <h3 class="h5 text-success mb-3">Smart Cooking Hacks 🔍</h3>
-            <label for="tipSearch" class="form-label font-weight-bold">Search cooking tips</label>
-            <input type="text" id="tipSearch" class="form-control mb-2" placeholder="Try: herbs, eggs, sugar, garlic...">
-            <div id="searchCounter" class="text-muted small">Matching tips: <span id="tipCount">6</span></div>
-        </section>
-
-        <section class="tips-grid mb-5">
-            <div class="row g-3" id="tipsContainer">
-                <div class="col-md-4 tip-item" data-keywords="herbs cilantro parsley lettuce ice water crisp revive">
-                    <div class="tip-card">
-                        <h4>🌿 1. Revive Wilted Herbs</h4>
-                        <p>Soak limp cilantro, parsley, or lettuce in a bowl of ice water with a splash of lemon juice for 15–30 minutes to make them crisp again.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 tip-item" data-keywords="soup salt potato rice over-salted fix">
-                    <div class="tip-card">
-                        <h4>🍲 2. Fix Over-Salted Soup</h4>
-                        <p>Drop a peeled raw potato or a small amount of rice into the pot. It will absorb excess salt while simmering. Remove before serving.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 tip-item" data-keywords="avocado paper bag banana apple ethylene gas ripen fast">
-                    <div class="tip-card">
-                        <h4>🥑 3. Ripen Avocados Fast</h4>
-                        <p>Place an unripe avocado in a brown paper bag with a banana or an apple. Natural ethylene gas released by the fruit accelerates ripening.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 tip-item" data-keywords="onion tears refrigerator chill enzyme cut prevent">
-                    <div class="tip-card">
-                        <h4>🧅 4. Prevent Onion Tears</h4>
-                        <p>Chill the onion in the refrigerator for 30 minutes before cutting. Lower temperatures slow down the release of the enzyme that causes crying.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 tip-item" data-keywords="egg fresh water float sink test freshness">
-                    <div class="tip-card">
-                        <h4>🥚 5. Test Egg Freshness</h4>
-                        <p>Submerge eggs in a bowl of cold water. If they sink flat to the bottom, they are very fresh. If they stand up or float, they are old.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 tip-item" data-keywords="brown sugar microwave paper towel soften hard">
-                    <div class="tip-card">
-                        <h4>🥐 6. Soften Hard Brown Sugar</h4>
-                        <p>Place hardened brown sugar in a microwave-safe bowl with a damp paper towel and microwave in 20-second bursts until soft.</p>
-                    </div>
-                </div>
+        <button
+          id="theme-button"
+          class="theme-toggle btn btn--quiet btn--sm"
+          type="button"
+          aria-pressed="false"
+          aria-label="Switch to dark theme"
+        >
+          Dark theme
+        </button>
+      </div>
+    </header>
+    <main class="container main-content site-content" id="main-content">
+      <section class="page-intro">
+        <div class="intro-title">
+          <span class="icon-tile page-mark">
+            <span class="k-icon" data-icon="bulb" aria-hidden="true"></span>
+          </span>
+          <div>
+            <span class="eyebrow">A few useful things to know</span>
+            <h1>Kitchen tips</h1>
+          </div>
+        </div>
+        <p>Practical notes on preparation, storage and ingredient swaps.</p>
+      </section>
+      <section class="search-card card mb-4 panel">
+        <h2 class="text-success mb-3">
+          <span class="k-icon" data-icon="search" aria-hidden="true"></span>
+          Find a tip
+        </h2>
+        <label for="tipSearch" class="form-label">Search cooking tips</label>
+        <input type="text" id="tipSearch" class="mb-2" placeholder="Try: herbs, eggs, sugar, garlic..." />
+        <div id="searchCounter" role="status" aria-live="polite" class="text-muted small">
+          Matching tips:
+          <span id="tipCount">6</span>
+        </div>
+      </section>
+      <section class="mb-5">
+        <div class="row" id="tipsContainer">
+          <div class="tip-item" data-keywords="herbs cilantro parsley lettuce ice water crisp revive">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="leaf" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Preparation</span>
+              <h3>Revive Wilted Herbs</h3>
+              <p>
+                Soak limp cilantro, parsley, or lettuce in a bowl of ice water with a splash of lemon juice for 15–30
+                minutes to make them crisp again.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                <span>15–30 min</span>
+              </div>
             </div>
-            <div id="noResults" class="alert alert-warning text-center mt-3" style="display: none;">No matching tips found. Try another search term!</div>
-        </section>
-
-        <section class="substitutions-card card p-4 mb-5">
-            <h3 class="h4 text-success mb-3 text-center">Emergency Ingredient Substitutions 🔄</h3>
-            <p class="text-center text-muted mb-4">Out of a key ingredient? Use these tested kitchen swaps in a pinch.</p>
-            <div class="table-responsive">
-                <table class="table custom-table">
-                    <thead>
-                        <tr>
-                            <th>Original Ingredient</th>
-                            <th>Amount</th>
-                            <th>Best Substitute</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Buttermilk</strong></td>
-                            <td>1 cup</td>
-                            <td>1 tbsp lemon juice + milk</td>
-                            <td>Let sit for 5 minutes before using.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sour Cream</strong></td>
-                            <td>1 cup</td>
-                            <td>Plain Greek Yogurt</td>
-                            <td>Provides a nearly identical texture and tang.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Brown Sugar</strong></td>
-                            <td>1 cup</td>
-                            <td>1 cup white sugar + 1 tbsp molasses</td>
-                            <td>Mix well before incorporating into batter.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Eggs (for baking)</strong></td>
-                            <td>1 egg</td>
-                            <td>1/4 cup unsweetened applesauce</td>
-                            <td>Great for moisture in cakes and muffins.</td>
-                        </tr>
-                    </tbody>
-                </table>
+          </div>
+          <div class="tip-item" data-keywords="soup salt potato rice over-salted fix">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="salt" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Seasoning</span>
+              <h3>Fix Over-Salted Soup</h3>
+              <p>
+                Add unsalted broth or water a little at a time, then taste again. Increase the other ingredients if the
+                soup becomes too thin.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="bowl" aria-hidden="true"></span>
+                <span>Add a little, then taste</span>
+              </div>
             </div>
-        </section>
-
-       
-        <section class="card shadow-sm p-4 mb-5">
-            <h3 class="h4 mb-3 text-success">Get Weekly Kitchen Tips</h3>
-            <p class="text-muted mb-4">Subscribe with your details to receive our best culinary hacks directly in your inbox.</p>
-            
-            <form id="tipsContactForm" novalidate>
-                <div class="mb-3">
-                    <label for="tipNameInput" class="form-label font-weight-bold">Your Name</label>
-                    <input type="text" id="tipNameInput" class="form-control" placeholder="Enter your name">
-                    <div class="invalid-feedback text-danger small mt-1" id="tipNameError" style="display: none;">Please enter your name.</div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="tipEmailInput" class="form-label font-weight-bold">Email Address</label>
-                    <input type="email" id="tipEmailInput" class="form-control" placeholder="example@domain.com">
-                    <div class="invalid-feedback text-danger small mt-1" id="tipEmailError" style="display: none;">Please enter a valid email address.</div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="tipMessageInput" class="form-label font-weight-bold">Your Question or Topic</label>
-                    <textarea id="tipMessageInput" class="form-control" rows="3" placeholder="What tips would you like to see?"></textarea>
-                    <div class="invalid-feedback text-danger small mt-1" id="tipMessageError" style="display: none;">Message must be between 10 and 500 characters.</div>
-                </div>
-                
-                <button type="submit" id="tipSubmitBtn" class="btn btn-success w-100 py-2 fw-bold">Submit Subscription</button>
-                <div id="tipFormSuccess" class="alert alert-success mt-3" style="display: none;"></div>
-            </form>
-        </section>
+          </div>
+          <div class="tip-item" data-keywords="avocado paper bag banana apple ethylene gas ripen fast">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="avocado" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Ripening</span>
+              <h3>Ripen Avocados Fast</h3>
+              <p>
+                Place an unripe avocado in a brown paper bag with a banana or an apple. Natural ethylene gas released by
+                the fruit accelerates ripening.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="leaf" aria-hidden="true"></span>
+                <span>A paper bag helps</span>
+              </div>
+            </div>
+          </div>
+          <div class="tip-item" data-keywords="onion tears refrigerator chill enzyme cut prevent">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="onion" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Preparation</span>
+              <h3>Prevent Onion Tears</h3>
+              <p>
+                Chill the onion in the refrigerator for 30 minutes before cutting. Lower temperatures slow down the
+                release of the enzyme that causes crying.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="cold" aria-hidden="true"></span>
+                <span>30 min in the fridge</span>
+              </div>
+            </div>
+          </div>
+          <div class="tip-item" data-keywords="egg fresh water float sink test freshness">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="egg" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Storage</span>
+              <h3>Test Egg Freshness</h3>
+              <p>
+                Submerge eggs in a bowl of cold water. If they sink flat to the bottom, they are very fresh. If they
+                stand up or float, they are older. This does not confirm whether an egg is safe: check the date and
+                storage conditions.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+                <span>Check the date and storage</span>
+              </div>
+            </div>
+          </div>
+          <div class="tip-item" data-keywords="brown sugar microwave paper towel soften hard">
+            <div class="tip-card panel">
+              <span class="icon-tile tip-symbol">
+                <span class="k-icon" data-icon="sugar" aria-hidden="true"></span>
+              </span>
+              <span class="tip-label">Baking</span>
+              <h3>Soften Hard Brown Sugar</h3>
+              <p>
+                Place hardened brown sugar in a microwave-safe bowl with a damp paper towel and microwave in 20-second
+                bursts until soft.
+              </p>
+              <div class="tip-takeaway">
+                <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                <span>20-second bursts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="noResults" class="alert mt-3" hidden>No matching tips found. Try another search term!</div>
+      </section>
+      <section class="substitutions-card card mb-5 panel panel--muted">
+        <div class="section-heading">
+          <span class="icon-tile">
+            <span class="k-icon" data-icon="swap" aria-hidden="true"></span>
+          </span>
+          <div>
+            <span class="mini-label">A little kitchen know-how</span>
+            <h2>Ingredient swaps</h2>
+          </div>
+        </div>
+        <p class="text-muted mb-4">A few substitutions for everyday cooking.</p>
+        <div class="swaps-grid">
+          <article class="swap-card panel">
+            <div class="swap-source">
+              <span class="icon-tile">
+                <span class="k-icon" data-icon="milk" aria-hidden="true"></span>
+              </span>
+              <div>
+                <h3>Buttermilk</h3>
+                <span>1 cup</span>
+              </div>
+            </div>
+            <span class="k-icon swap-arrow" data-icon="arrow" aria-hidden="true"></span>
+            <div class="swap-result">
+              <span class="mini-label">Use instead</span>
+              <p>1 tbsp lemon juice + milk</p>
+            </div>
+            <p class="swap-note">Add milk to make 1 cup total. Rest for 5 minutes.</p>
+          </article>
+          <article class="swap-card panel">
+            <div class="swap-source">
+              <span class="icon-tile">
+                <span class="k-icon" data-icon="jar" aria-hidden="true"></span>
+              </span>
+              <div>
+                <h3>Sour cream</h3>
+                <span>1 cup</span>
+              </div>
+            </div>
+            <span class="k-icon swap-arrow" data-icon="arrow" aria-hidden="true"></span>
+            <div class="swap-result">
+              <span class="mini-label">Use instead</span>
+              <p>1 cup plain Greek yogurt</p>
+            </div>
+            <p class="swap-note">A similar texture and tang for everyday cooking.</p>
+          </article>
+          <article class="swap-card panel">
+            <div class="swap-source">
+              <span class="icon-tile">
+                <span class="k-icon" data-icon="sugar" aria-hidden="true"></span>
+              </span>
+              <div>
+                <h3>Brown sugar</h3>
+                <span>1 cup</span>
+              </div>
+            </div>
+            <span class="k-icon swap-arrow" data-icon="arrow" aria-hidden="true"></span>
+            <div class="swap-result">
+              <span class="mini-label">Use instead</span>
+              <p>1 cup white sugar + 1 tbsp molasses</p>
+            </div>
+            <p class="swap-note">Mix together before adding to your batter.</p>
+          </article>
+          <article class="swap-card panel">
+            <div class="swap-source">
+              <span class="icon-tile">
+                <span class="k-icon" data-icon="egg" aria-hidden="true"></span>
+              </span>
+              <div>
+                <h3>Egg in baking</h3>
+                <span>1 egg</span>
+              </div>
+            </div>
+            <span class="k-icon swap-arrow" data-icon="arrow" aria-hidden="true"></span>
+            <div class="swap-result">
+              <span class="mini-label">Use instead</span>
+              <p>¼ cup unsweetened applesauce</p>
+            </div>
+            <p class="swap-note">For moisture in cakes and muffins.</p>
+          </article>
+        </div>
+      </section>
+      <section class="card mb-5 suggestion-card panel">
+        <div class="suggestion-copy">
+          <span class="icon-tile suggestion-mark">
+            <span class="k-icon" data-icon="mail" aria-hidden="true"></span>
+          </span>
+          <h2 class="mb-3 text-success">What should we try next?</h2>
+          <p>Ask about something you cook, an ingredient you use, or a step that never quite works.</p>
+          <div class="topic-prompts">
+            <span class="mini-label">Need an idea?</span>
+            <button type="button" data-topic="How can I make dough easier to roll?" class="btn btn--soft btn--sm">
+              <span class="k-icon" data-icon="wheat" aria-hidden="true"></span>
+              Working with dough
+            </button>
+            <button type="button" data-topic="How should I store fresh herbs?" class="btn btn--soft btn--sm">
+              <span class="k-icon" data-icon="leaf" aria-hidden="true"></span>
+              Keeping herbs fresh
+            </button>
+          </div>
+        </div>
+        <form id="tipsContactForm" data-local-form novalidate>
+          <div class="mb-3">
+            <label for="tipNameInput" class="form-label">Your Name</label>
+            <input
+              type="text"
+              id="tipNameInput"
+              data-check="name"
+              data-error="tipNameError"
+              autocomplete="name"
+              maxlength="80"
+              required
+              aria-describedby="tipNameError"
+              placeholder="Enter your name"
+            />
+            <div class="invalid-feedback text-danger small mt-1" id="tipNameError" hidden>Please enter your name.</div>
+          </div>
+          <div class="mb-3">
+            <label for="tipEmailInput" class="form-label">Email Address</label>
+            <input
+              type="email"
+              id="tipEmailInput"
+              data-check="email"
+              data-error="tipEmailError"
+              autocomplete="email"
+              maxlength="254"
+              required
+              aria-describedby="tipEmailError"
+              placeholder="example@domain.com"
+            />
+            <div class="invalid-feedback text-danger small mt-1" id="tipEmailError" hidden>
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="tipPhone" class="form-label">Phone number</label>
+            <input
+              type="tel"
+              id="tipPhone"
+              autocomplete="tel"
+              required
+              maxlength="30"
+              data-check="phone"
+              data-error="tipPhoneError"
+              aria-describedby="tipPhoneHint tipPhoneError"
+              placeholder="+7 701 123 4567"
+            />
+            <p class="form-text" id="tipPhoneHint">10–15 digits; +, spaces, brackets and hyphens are allowed.</p>
+            <p class="text-danger" id="tipPhoneError" aria-live="polite" hidden></p>
+          </div>
+          <div class="mb-3">
+            <label for="tipMessageInput" class="form-label">Your Question or Topic</label>
+            <textarea
+              id="tipMessageInput"
+              data-check="message"
+              data-error="tipMessageError"
+              minlength="10"
+              maxlength="500"
+              required
+              aria-describedby="tipMessageError"
+              rows="3"
+              placeholder="What tips would you like to see?"
+            ></textarea>
+            <div class="invalid-feedback text-danger small mt-1" id="tipMessageError" hidden>
+              Message must be between 10 and 500 characters.
+            </div>
+          </div>
+          <button type="submit" id="tipSubmitBtn" class="btn-success btn">Check suggestion</button>
+          <div id="tipFormSuccess" data-form-status role="status" aria-live="polite" class="alert mt-3" hidden></div>
+        </form>
+      </section>
     </main>
-
     <footer class="site-footer">
-    <div class="container footer-content">
+      <div class="container footer-content">
         <h2>CookFromHome</h2>
         <p>Cook by yourself :3</p>
-    </div>
-</footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/tips-dom.js"></script>
-    <script src="js/site.js"></script>
-</body>
+      </div>
+    </footer>
+    <script src="js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="js/components/validation.js"></script>
+    <script src="js/pages/tips.js"></script>
+  </body>
 </html>

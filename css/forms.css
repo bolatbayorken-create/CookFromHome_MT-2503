@@ -1,122 +1,179 @@
-body {
-    background-color: #f1eace;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
+/* Контактная страница */
+
+.contact-account {
+  margin-top: 20px;
+  padding: 22px;
 }
 
-.site-header {
-    background: #ffffff;
-    border-bottom: 1px solid #eaeaea;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+.contact-account h2 {
+  font-size: 21px;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.contact-account p {
+  font-size: 14px;
 }
 
-.logo {
-    font-size: 22px;
-    color: #3d5240;
-    font-weight: bold;
-    margin: 0;
+.account-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
-.nav-links a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 15px;
+.main-content > .card {
+  max-width: 780px;
+  padding: 29px;
 }
 
-.nav-links a.active, .nav-links a:hover {
-    color: #3d5240;
-    border-bottom: 2px solid #3d5240;
-    padding-bottom: 3px;
+.main-content > .card h2 {
+  font-size: 22px;
 }
 
-.main-content {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 15px;
+.main-content > .card > .supporting-text {
+  margin: -9px 0 23px;
 }
 
-.tips-hero {
-    background: #fff0f3;
-    border: 2px dashed #889f77;
-    border-radius: 12px;
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#formSuccess {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .main-content > .card {
+    padding: 21px;
+  }
+}
+
+/* Расположение формы и вступления */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.4fr;
+  gap: 70px;
+  align-items: start;
+  padding-top: 55px;
+}
+
+.contact-layout .page-intro {
+  display: block;
+  padding: 0;
+}
+
+.contact-layout .page-intro p {
+  margin-top: 23px;
+  max-width: 260px;
+}
+
+.contact-layout > .card {
+  padding: 35px;
+  margin: 0 0 30px;
+}
+
+.contact-layout > .card h2 {
+  font-size: 27px;
+}
+
+.contact-layout textarea {
+  min-height: 180px;
+}
+
+@media (max-width: 800px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 34px;
+  }
+
+  .contact-layout .page-intro p {
+    margin-top: 15px;
+    max-width: none;
+  }
+
+  .contact-layout > .card {
     padding: 25px;
-    margin-bottom: 30px;
+  }
 }
 
-.hero-badge {
-    display: inline-block;
-    background: #ff758c;
-    color: white;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 8px;
+.contact-note li .k-icon {
+  width: 18px;
+  height: 18px;
 }
 
-.tips-hero h2 {
-    color: #3d5240;
-    font-size: 26px;
-    margin-bottom: 8px;
+.contact-layout .page-mark .k-icon {
+  width: 30px;
+  height: 30px;
 }
 
-.card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+.contact-layout {
+  gap: 35px;
 }
 
-.btn-success {
-    background-color: #3d5240 !important;
-    border-color: #3d5240 !important;
+.contact-layout .intro-title {
+  gap: 14px;
 }
 
-.btn-success:hover {
-    background-color: #2d4030 !important;
-    border-color: #2d4030 !important;
+.contact-layout .page-mark {
+  width: 53px;
+  height: 53px;
+  border-radius: 15px;
 }
 
-.is-invalid {
-    border-color: #dc3545 !important;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+.contact-layout .page-intro > p {
+  border: 0;
+  padding: 0;
 }
 
-.is-valid {
-    border-color: #198754 !important;
+/* Блок с подсказками */
+
+.contact-note {
+  margin-top: 32px;
+  padding: 21px;
 }
 
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 8px 10px;
-    }
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 5px;
-    }
-    .nav-links a {
-        margin: 0 5px;
-        font-size: 13px;
-    }
+.contact-mark {
+  margin-bottom: 14px;
+  background: var(--surface);
+  transform: rotate(-6deg);
+}
+
+.contact-note h2 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.contact-note p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.contact-note ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-note li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  margin-top: 9px;
+  color: var(--accent-ink);
+}
+
+@media (max-width: 700px) {
+  .contact-note {
+    margin-top: 24px;
+  }
+}
+
+.site-content.contact-layout {
+  row-gap: 24px;
+  align-content: start;
+  padding-top: 32px;
 }

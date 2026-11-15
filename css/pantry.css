@@ -1,287 +1,576 @@
-.pantry {
-    padding-top: 20px;
-    padding-bottom: 50px;
+/* Продукты: список, предложения и справка */
+
+#pantry-product-list li > span {
+  flex: 1;
 }
 
-.pantry-top-card, 
-.pantry-added-card, 
-.pantry-shelf, 
-.note-card, 
-.pantry-log-card, 
-.pantry-faq-card {
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 24px 28px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    border: 1px solid #eae6d9;
+.pantry-shelf-title h3 {
+  font-size: 18px;
 }
 
-.pantry-top-card h1 {
-    font-size: 2.2rem;
-    color: #3d5240;
-    margin-bottom: 6px;
-    font-weight: 700;
+.pantry-add-product > label .k-icon {
+  color: var(--green);
 }
 
-.pantry-top-card .subtitle {
-    color: #6b7c6e;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-}
-
-.pantry-add-product label {
-    font-weight: 600;
-    color: #3d5240;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.add-product {
-    display: flex;
-    gap: 12px;
-    max-width: 480px;
-}
-
-.add-product input {
-    flex: 1;
-    padding: 11px 16px;
-    border: 1px solid #889f77;
-    background-color: #ffffff;
-    border-radius: 10px;
-    color: #2d4030;
-    font-size: 0.95rem;
-    outline: none;
+.pantry-top-card {
+  margin-bottom: 24px;
 }
 
 .add-product button {
-    background-color: #889f77;
-    color: #ffffff;
-    border: none;
-    padding: 11px 22px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  flex: none;
 }
 
-.add-product button:hover {
-    background-color: #6d845c;
-}
-
-#pantry-add-feedback {
-    font-size: 0.85rem;
-    color: #556653;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
-.pantry-added-card h2 {
-    color: #3d5240;
-    margin-bottom: 4px;
-    font-size: 1.4rem;
-}
-
-.count-text {
-    color: #6b7c6e;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-}
-
-#pantry-empty-list {
-    color: #8fa08e;
-    font-style: italic;
-    margin: 10px 0;
-}
-
-#pantry-product-list {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-}
-
-#pantry-product-list li {
-    background: #f8faf6;
-    border: 1px solid #e2ebd8;
-    border-radius: 10px;
-    padding: 10px 18px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    color: #3d5240;
+#pantry-product-list li > span {
+  overflow-wrap: anywhere;
 }
 
 #pantry-product-list li button {
-    background-color: #d9534f;
-    color: #ffffff;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
+  flex: none;
+  min-height: 36px;
+}
+
+.faq-answer p,
+.note-card .supporting-text,
+.pantry-shelf-title h3 {
+  margin: 0;
+}
+
+.pantry-add-product label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+#pantry-product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.faq-item {
+  border-top: 1px solid var(--line);
 }
 
 .pantry-main-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 24px;
+  display: block;
+}
+
+.pantry-guide > .eyebrow {
+  display: none;
+}
+
+/* Добавление продуктов */
+
+.add-product {
+  display: flex;
+}
+
+#pantry-add-feedback {
+  font-size: 12px;
+  color: var(--muted);
+  grid-column: 2;
+  margin: 0;
+  min-height: 20px;
+}
+
+.pantry-added-card h2 {
+  margin-bottom: 7px;
+}
+
+.count-text {
+  color: var(--muted);
+}
+
+#pantry-empty-list {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* Список продуктов */
+
+#pantry-product-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  gap: 8px;
+  font-size: 14px;
+}
+
+.pantry-main-grid {
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 30px;
 }
 
 .pantry-shelf-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #f0efe6;
-    padding-bottom: 8px;
-}
-
-.pantry-shelf-title h4 {
-    color: #3d5240;
-    margin: 0;
-    font-weight: 700;
-}
-
-.pantry-shelf-title span {
-    color: #8fa08e;
-    font-size: 0.85rem;
+  justify-content: space-between;
 }
 
 .foods {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.foods p {
-    background: #f4f7f2;
-    border: 1px solid #d8e2d4;
-    color: #3d5240;
-    padding: 7px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 0;
-    transition: all 0.2s;
-}
-
-.foods p:hover {
-    background: #889f77;
-    border-color: #889f77;
-    color: #ffffff;
-}
-
-.note-card {
-    background: #fffef7;
-    border: 1px solid #f5e8c7;
-    height: fit-content;
+.foods button {
+  cursor: pointer;
+  margin: 0;
 }
 
 .note-card h2 {
-    color: #3d5240;
-    font-size: 1.3rem;
-    margin-bottom: 16px;
+  font-size: 20px;
+  margin: 15px 0;
 }
 
-.note-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px dashed #eee3c3;
-    padding: 12px 0;
+.pantry-faq-card h2 {
+  font-size: 21px;
+  margin-bottom: 14px;
 }
 
-.note-row:last-child {
-    border-bottom: none;
+/* Справка */
+
+.faq-question {
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
 }
 
-.note-row h4 {
-    margin: 0;
-    color: #3d5240;
-    font-size: 0.95rem;
+.faq-question:after {
+  content: "+";
+  font-size: 18px;
+  margin-left: 15px;
 }
 
-.note-row p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: #8fa08e;
+.faq-question[aria-expanded="true"]:after {
+  content: "−";
 }
 
-.badge {
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
+.faq-answer {
+  font-size: 13px;
+  color: var(--muted);
+  padding: 0 0 12px;
 }
 
-.badge.warn {
-    background: #fdf3d8;
-    color: #b58105;
+@media (max-width: 850px) {
+  .pantry-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .note-card {
+    margin-bottom: 10px;
+  }
 }
 
-.badge.urgent {
-    background: #fde8e8;
-    color: #c84040;
-}
-
-.pantry-log-card h3 {
-    color: #3d5240;
-    margin-bottom: 16px;
-}
-
-.log-table {
-    display: flex;
+@media (max-width: 600px) {
+  .add-product {
     flex-direction: column;
-    gap: 8px;
+  }
+
+  .pantry-faq-card {
+    padding: 20px;
+  }
 }
 
-.log-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 12px 16px;
-    border-radius: 10px;
-    background: #fbfcf9;
-    border: 1px solid #f0f4ee;
-    align-items: center;
-    color: #3d5240;
-    font-size: 0.95rem;
+.shelves {
+  display: grid;
 }
 
-.log-head {
-    background: #eef3ec;
-    font-weight: 700;
-    border: none;
+.pantry-shelf-title > span {
+  color: var(--muted);
+  font-size: 10px;
 }
 
-.status-pill {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
+.note-card {
+  padding: 25px;
 }
 
-.pantry-cook-btn-wrap {
-    text-align: center;
-    margin-top: 30px;
+@media (max-width: 600px) {
+  .shelves {
+    gap: 14px;
+  }
+
+  .pantry-added-card {
+    padding: 22px;
+  }
+}
+
+.pantry-guide p:last-child {
+  margin-bottom: 0;
+}
+
+.pantry-add-product {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 165px minmax(0, 1fr);
+  gap: 5px 20px;
+  align-items: center;
+  padding: 21px 25px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.pantry-add-product > label {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.add-product {
+  gap: 9px;
+}
+
+/* Расположение блоков */
+
+.pantry-workspace {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.pantry-added-card {
+  position: sticky;
+  top: 20px;
+  padding: 23px;
+  margin: 0;
+}
+
+.pantry-added-card h2,
+.pantry-faq-card > h2 {
+  font-size: 20px;
+}
+
+.pantry-added-card .section-heading {
+  gap: 9px;
+  margin-bottom: 5px;
+}
+
+.count-text {
+  font-size: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+
+.empty-pantry {
+  text-align: center;
+  padding-top: 9px;
+}
+
+.empty-drawing {
+  position: relative;
+  width: 175px;
+  height: 140px;
+  margin: 7px auto 4px;
+}
+
+.empty-drawing:before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--sage);
+  left: 33px;
+  top: 19px;
+}
+
+.empty-drawing .basket {
+  position: absolute;
+  width: 83px;
+  height: 83px;
+  left: 46px;
+  top: 38px;
+  color: var(--accent-ink);
+}
+
+.floating-food {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  color: var(--green);
+}
+
+.floating-food.one {
+  left: 14px;
+  top: 21px;
+  transform: rotate(-22deg);
+}
+
+.floating-food.two {
+  right: 6px;
+  top: 32px;
+  transform: rotate(24deg);
+}
+
+.floating-food.three {
+  left: 79px;
+  top: 2px;
+  transform: rotate(12deg);
+}
+
+.empty-pantry h3 {
+  font-size: 16px;
+  margin: 0 0 9px;
+}
+
+.empty-pantry > p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 17px;
+}
+
+#add-pantry-basics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.shelves {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.suggestions-title {
+  grid-column: 1/-1;
+  margin: 0 0 -3px;
+  font-size: 18px;
+}
+
+.pantry-shelf {
+  padding: 20px;
+  margin: 0;
+}
+
+.pantry-shelf-title {
+  display: grid;
+  grid-template-columns: 43px 1fr;
+  gap: 0 11px;
+  align-items: center;
+}
+
+.category-mark {
+  grid-row: 1/3;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+}
+
+.category-mark .k-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.pantry-shelf:nth-of-type(2n) .category-mark {
+  background: var(--warm);
+}
+
+.pantry-shelf-title > span:last-child {
+  grid-column: 2;
+  font-size: 10px;
+}
+
+.foods {
+  margin-top: 17px;
+  gap: 7px;
+}
+
+.foods button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+}
+
+.foods button.is-stocked {
+  opacity: 1;
+  cursor: default;
+}
+
+.foods button.is-stocked:after {
+  content: "✓";
+  font-weight: 700;
+  font-size: 13px;
+}
+
+#pantry-product-list li:before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  flex: none;
+}
+
+.pantry-guide {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 0 14px;
+  padding: 20px;
+  background: var(--warm);
+  border: 1px solid var(--line);
+  margin-top: 19px;
+}
+
+.pantry-guide > .icon-tile {
+  width: 42px;
+  height: 42px;
+  grid-row: 1/5;
+  background: var(--surface);
+}
+
+.pantry-guide h2 {
+  font-size: 17px;
+  margin: 0 0 7px;
+}
+
+.pantry-guide p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 12px;
+}
+
+.pantry-guide p + p {
+  margin-top: 5px;
+}
+
+.pantry-bottom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.help-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
 }
 
 .cook-now-btn {
-    display: inline-block;
-    background-color: #889f77;
-    color: #ffffff;
-    padding: 14px 32px;
-    border-radius: 12px;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: background-color 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.cook-now-btn:hover {
-    background-color: #6d845c;
+.pantry-faq-card {
+  margin-top: 18px;
+  padding: 23px;
+}
+
+@media (max-width: 1100px) {
+  .pantry-shelf {
+    padding: 17px;
+  }
+
+  .pantry-workspace {
+    grid-template-columns: 265px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 950px) {
+  .shelves {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .pantry-add-product {
+    display: block;
+    padding: 18px;
+  }
+
+  .pantry-add-product > label {
+    margin-bottom: 10px;
+  }
+
+  #pantry-add-feedback {
+    margin-top: 7px;
+    font-size: 11px;
+  }
+
+  .pantry-workspace {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .pantry-added-card {
+    position: static;
+  }
+
+  .empty-drawing {
+    height: 115px;
+    margin-top: 0;
+  }
+
+  .empty-drawing:before {
+    height: 92px;
+    width: 100px;
+    top: 12px;
+  }
+
+  .empty-drawing .basket {
+    height: 70px;
+    width: 70px;
+    top: 27px;
+    left: 50px;
+  }
+
+  .empty-pantry > p {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #add-pantry-basics {
+    max-width: 310px;
+    margin: auto;
+  }
+
+  .shelves {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pantry-bottom-actions {
+    align-items: stretch;
+  }
+
+  .pantry-bottom-actions .cook-now-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .shelves {
+    grid-template-columns: 1fr;
+  }
+
+  .pantry-shelf {
+    padding: 20px;
+  }
+
+  .pantry-bottom-actions .cook-now-btn {
+    width: 100%;
+    flex: auto;
+  }
+
+  .pantry-guide {
+    padding: 18px;
+  }
+}
+
+.foods button .k-icon {
+  width: 16px;
+  height: 16px;
 }

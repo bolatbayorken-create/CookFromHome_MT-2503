@@ -1,202 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CookFromHome - Pantry</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pantry.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/dom.css">
-    <link rel="stylesheet" href="css/site-polish.css">
-    <link rel="stylesheet" href="css/site-layout.css">
-</head>
-
-<body>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/pantry.css" />
+  </head>
+  <body>
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-
     <header class="site-topbar">
-    <div class="container header-content">
+      <div class="container header-content">
         <a href="index.html" class="logo">CookFromHome</a>
         <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="planner.html">Planner</a>
-            <a href="tips.html">Tips</a>
-            <a href="pantry.html" aria-current="page">Pantry</a>
-            <a href="forms.html">Forms</a>
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
         </nav>
-        <button id="theme-button" class="theme-toggle" type="button"
-                aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
-    </div>
-</header>
-
-    <main class="pantry container" id="main-content">
-
-        <section class="pantry-top-card">
-            <h1>My Home Pantry & Fridge 🧺</h1>
-            <p class="subtitle">Track ingredients you currently have at home before cooking</p>
-            
-            <div class="pantry-add-product">
-                <label for="pantry-new-product">Quick Add Ingredient</label>
-                <form id="pantry-add-form" class="add-product">
-                    <input id="pantry-new-product" name="product" type="text" placeholder="e.g. Milk, Eggs, Tomatoes...">
-                    <button type="submit">+ Add to Pantry</button>
-                </form>
-                <p id="pantry-add-feedback">💡 <span>Products are updated dynamically in your session list below.</span></p>
+        <button id="theme-button" class="theme-toggle btn btn--quiet btn--sm" type="button" aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
+      </div>
+    </header>
+    <main class="pantry container site-content" id="main-content">
+      <section class="pantry-top-card">
+        <section class="page-intro">
+          <div class="intro-title">
+            <span class="icon-tile page-mark">
+              <span class="k-icon" data-icon="jar" aria-hidden="true"></span>
+            </span>
+            <div>
+              <span class="eyebrow">Start with what you have</span>
+              <h1>My pantry</h1>
             </div>
+          </div>
+          <p>Keep a list of the ingredients you have at home.</p>
         </section>
-
-        <section class="pantry-added-card">
-            <h2>Items Currently in Stock 📦</h2>
-            <p class="count-text">Total tracked items: <span id="pantry-item-count">0</span></p>
-            <p id="pantry-empty-list">Your pantry is empty. Add items above or click categories below!</p>
-            <ul id="pantry-product-list"></ul>
-        </section>
-
-        <section class="pantry-main-grid">
-            <div class="shelves">
-                <article class="pantry-shelf">
-                    <div class="pantry-shelf-title">
-                        <h4>PROTEIN 🥩</h4>
-                        <span>6 items</span>
-                    </div>
-                    <div class="foods">
-                        <p>Chicken 🍗</p>
-                        <p>Eggs 🥚</p>
-                        <p>Beans 🫘</p>
-                    </div>
-                </article>
-
-                <article class="pantry-shelf">
-                    <div class="pantry-shelf-title">
-                        <h4>GRAINS 🌾</h4>
-                        <span>8 items</span>
-                    </div>
-                    <div class="foods">
-                        <p>Rice 🍚</p>
-                        <p>Pasta 🍝</p>
-                        <p>Bread 🍞</p>
-                    </div>
-                </article>
-
-                <article class="pantry-shelf">
-                    <div class="pantry-shelf-title">
-                        <h4>VEGETABLES 🥦</h4>
-                        <span>7 items</span>
-                    </div>
-                    <div class="foods">
-                        <p>Tomatoes 🍅</p>
-                        <p>Onions 🧅</p>
-                        <p>Carrots 🥕</p>
-                    </div>
-                </article>
-
-                <article class="pantry-shelf">
-                    <div class="pantry-shelf-title">
-                        <h4>DAIRY 🥛</h4>
-                        <span>5 items</span>
-                    </div>
-                    <div class="foods">
-                        <p>Milk 🥛</p>
-                        <p>Cheese 🧀</p>
-                        <p>Yogurt 🍦</p>
-                    </div>
-                </article>
-            </div>
-
-            <aside class="note-card">
-                <h2>Before It Expires ⏳</h2>
-                <div class="note-row">
-                    <div>
-                        <h4>Tomatoes 🍅</h4>
-                        <p>4 pieces</p>
-                    </div>
-                    <span class="badge warn">2 DAYS</span>
-                </div>
-
-                <div class="note-row">
-                    <div>
-                        <h4>Milk 🥛</h4>
-                        <p>500 ml</p>
-                    </div>
-                    <span class="badge warn">3 DAYS</span>
-                </div>
-
-                <div class="note-row">
-                    <div>
-                        <h4>Chicken Fillet 🍗</h4>
-                        <p>500 g</p>
-                    </div>
-                    <span class="badge urgent">1 DAY</span>
-                </div>
-            </aside>
-        </section>
-
-        <section class="pantry-log-card">
-            <h3>Inventory Status Log 📋</h3>
-            <div class="log-table">
-                <div class="log-row log-head">
-                    <div>Product</div>
-                    <div>Amount</div>
-                    <div>Status</div>
-                </div>
-                <div class="log-row">
-                    <div>Eggs 🥚</div>
-                    <div>6 pieces</div>
-                    <div><span class="status-pill fresh">🟢 Fresh</span></div>
-                </div>
-                <div class="log-row">
-                    <div>Tomatoes 🍅</div>
-                    <div>4 pieces</div>
-                    <div><span class="status-pill soon">🟡 Use soon</span></div>
-                </div>
-                <div class="log-row">
-                    <div>Rice 🍚</div>
-                    <div>1 kg</div>
-                    <div><span class="status-pill stock">🔵 In stock</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="pantry-faq-card">
-            <h2>Frequently Asked Questions ❓</h2>
-            <div class="faq-item">
-                <button type="button" class="faq-question">How do I update product expiration dates?</button>
-                <div class="faq-answer" hidden>
-                    <p>The expiration dates shown here are examples; they do not update automatically.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button type="button" class="faq-question">Can I generate recipes directly from my pantry?</button>
-                <div class="faq-answer" hidden>
-                    <p>You can open the Recipes page using the button below. Add ingredients to the list first to search for them.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button type="button" class="faq-question">How can I remove an ingredient?</button>
-                <div class="faq-answer" hidden>
-                    <p>Click Remove next to an ingredient in your stock list.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="pantry-cook-btn-wrap">
-            <a href="recipes.html" class="cook-now-btn">Now Cook With Pantry Items 🍳 &gt;</a>
+        <div class="pantry-add-product">
+          <label for="pantry-new-product">
+            <span class="k-icon" data-icon="leaf" aria-hidden="true"></span>
+            Add an ingredient
+          </label>
+          <form id="pantry-add-form" class="add-product">
+            <input id="pantry-new-product" maxlength="80" name="product" type="text" placeholder="e.g. Milk, Eggs, Tomatoes..." />
+            <button type="submit" class="btn">+ Add to Pantry</button>
+          </form>
+          <p id="pantry-add-feedback">
+            <span>Add an ingredient or choose one of the suggestions below.</span>
+          </p>
         </div>
-
+      </section>
+      <div class="pantry-workspace">
+        <section class="pantry-added-card panel panel--accent">
+          <div class="section-heading">
+            <span class="k-icon" data-icon="bag" aria-hidden="true"></span>
+            <h2>Your ingredients</h2>
+          </div>
+          <p class="count-text">
+            Total tracked items:
+            <span id="pantry-item-count">0</span>
+          </p>
+          <div id="pantry-empty-list" class="empty-pantry">
+            <div class="empty-drawing">
+              <span class="k-icon basket" data-icon="bag" aria-hidden="true"></span>
+              <span class="k-icon floating-food one" data-icon="carrot" aria-hidden="true"></span>
+              <span class="k-icon floating-food two" data-icon="bread" aria-hidden="true"></span>
+              <span class="k-icon floating-food three" data-icon="leaf" aria-hidden="true"></span>
+            </div>
+            <h3>A few things to start with?</h3>
+            <p>Add ingredients from your kitchen, or start with three everyday basics.</p>
+            <button type="button" id="add-pantry-basics" class="btn btn--soft btn--sm btn--block">
+              Add eggs, rice &amp; onions
+              <span class="k-icon" data-icon="arrow" aria-hidden="true"></span>
+            </button>
+          </div>
+          <ul id="pantry-product-list"></ul>
+        </section>
+        <section class="pantry-main-grid">
+          <div class="shelves">
+            <h2 class="suggestions-title">Add from suggestions</h2>
+            <article class="pantry-shelf panel">
+              <div class="pantry-shelf-title">
+                <span class="icon-tile category-mark">
+                  <span class="k-icon" data-icon="egg" aria-hidden="true"></span>
+                </span>
+                <h3>Protein</h3>
+                <span>3 suggestions</span>
+              </div>
+              <div class="foods">
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="bowl" aria-hidden="true"></span>
+                  <span>Chicken</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="egg" aria-hidden="true"></span>
+                  <span>Eggs</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="beans" aria-hidden="true"></span>
+                  <span>Beans</span>
+                </button>
+              </div>
+            </article>
+            <article class="pantry-shelf panel">
+              <div class="pantry-shelf-title">
+                <span class="icon-tile category-mark">
+                  <span class="k-icon" data-icon="wheat" aria-hidden="true"></span>
+                </span>
+                <h3>Grains</h3>
+                <span>3 suggestions</span>
+              </div>
+              <div class="foods">
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="bowl" aria-hidden="true"></span>
+                  <span>Rice</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="wheat" aria-hidden="true"></span>
+                  <span>Pasta</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="bread" aria-hidden="true"></span>
+                  <span>Bread</span>
+                </button>
+              </div>
+            </article>
+            <article class="pantry-shelf panel">
+              <div class="pantry-shelf-title">
+                <span class="icon-tile category-mark">
+                  <span class="k-icon" data-icon="carrot" aria-hidden="true"></span>
+                </span>
+                <h3>Vegetables</h3>
+                <span>3 suggestions</span>
+              </div>
+              <div class="foods">
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="tomato" aria-hidden="true"></span>
+                  <span>Tomatoes</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="onion" aria-hidden="true"></span>
+                  <span>Onions</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="carrot" aria-hidden="true"></span>
+                  <span>Carrots</span>
+                </button>
+              </div>
+            </article>
+            <article class="pantry-shelf panel">
+              <div class="pantry-shelf-title">
+                <span class="icon-tile category-mark">
+                  <span class="k-icon" data-icon="cheese" aria-hidden="true"></span>
+                </span>
+                <h3>Dairy</h3>
+                <span>3 suggestions</span>
+              </div>
+              <div class="foods">
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="milk" aria-hidden="true"></span>
+                  <span>Milk</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="cheese" aria-hidden="true"></span>
+                  <span>Cheese</span>
+                </button>
+                <button type="button" class="btn btn--choice btn--sm">
+                  <span class="k-icon" data-icon="jar" aria-hidden="true"></span>
+                  <span>Yogurt</span>
+                </button>
+              </div>
+            </article>
+          </div>
+          <aside class="note-card pantry-guide panel panel--warm">
+            <span class="icon-tile">
+              <span class="k-icon" data-icon="bulb" aria-hidden="true"></span>
+            </span>
+            <span class="eyebrow">A useful starting point</span>
+            <h2>Use what you have</h2>
+            <p>Add ingredients from your kitchen, then look for recipes that use any of them.</p>
+            <p>Your list is saved in this browser. Remove an item when it runs out.</p>
+          </aside>
+        </section>
+      </div>
+      <div class="pantry-bottom-actions">
+        <button data-disclosure class="help-toggle btn btn--quiet btn--sm" type="button" aria-expanded="false" aria-controls="pantry-help">
+          <span class="k-icon" data-icon="help" aria-hidden="true"></span>
+          Pantry help
+        </button>
+        <a href="recipes.html" class="cook-now-btn btn">
+          Find recipes with my ingredients
+          <span class="k-icon" data-icon="arrow" aria-hidden="true"></span>
+        </a>
+      </div>
+      <section class="pantry-faq-card panel" id="pantry-help" hidden>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button type="button" data-disclosure class="faq-question btn btn--row" aria-expanded="false" aria-controls="pantry-answer-1">Will my list be saved?</button>
+          <div class="faq-answer" id="pantry-answer-1" hidden>
+            <p>Yes, your ingredient list is saved in this browser when browser storage is available. It is not shared with other devices.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" data-disclosure class="faq-question btn btn--row" aria-expanded="false" aria-controls="pantry-answer-2">Can I find recipes using my ingredients?</button>
+          <div class="faq-answer" id="pantry-answer-2" hidden>
+            <p>You can open the Recipes page using the button below. Add ingredients to the list first. Results match any listed ingredient, so you may still need other ingredients.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" data-disclosure class="faq-question btn btn--row" aria-expanded="false" aria-controls="pantry-answer-3">How can I remove an ingredient?</button>
+          <div class="faq-answer" id="pantry-answer-3" hidden>
+            <p>Click Remove next to an ingredient in your stock list.</p>
+          </div>
+        </div>
+      </section>
     </main>
-
     <footer class="site-footer">
-    <div class="container footer-content">
+      <div class="container footer-content">
         <h2>CookFromHome</h2>
         <p>Cook by yourself :3</p>
-    </div>
-</footer>
+      </div>
+    </footer>
     <script src="js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="js/pantry-dom.js" defer></script>
-
-    <script src="js/site.js"></script>
-</body>
+    <script src="js/core/storage.js"></script>
+    <script src="js/components/disclosure.js"></script>
+    <script src="js/pages/pantry.js"></script>
+  </body>
 </html>

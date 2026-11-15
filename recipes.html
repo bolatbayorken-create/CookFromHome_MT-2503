@@ -1,446 +1,501 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore simple homemade meals, filter by category and follow eight step-by-step recipes.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse the CookFromHome recipe collection by ingredient and meal type." />
     <title>Recipes | CookFromHome</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/recipes.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/site-polish.css">
-    <link rel="stylesheet" href="css/site-layout.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/recipes.css" />
+  </head>
+  <body>
+    <script src="js/core/theme.js"></script>
+    <script src="icons/definitions.js"></script>
+    <script src="js/core/icons.js"></script>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <!-- Shared header: keep the team's existing design. -->
     <header class="site-topbar">
-    <div class="container header-content">
+      <div class="container header-content">
         <a href="index.html" class="logo">CookFromHome</a>
         <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="recipes.html" aria-current="page">Recipes</a>
-            <a href="planner.html">Planner</a>
-            <a href="tips.html">Tips</a>
-            <a href="pantry.html">Pantry</a>
-            <a href="forms.html">Forms</a>
+          <a href="index.html">
+            <span class="k-icon nav-icon" data-icon="hat" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="recipes.html" aria-current="page">
+            <span class="k-icon nav-icon" data-icon="note" aria-hidden="true"></span>
+            <span>Recipes</span>
+          </a>
+          <a href="planner.html">
+            <span class="k-icon nav-icon" data-icon="calendar" aria-hidden="true"></span>
+            <span>Planner</span>
+          </a>
+          <a href="tips.html">
+            <span class="k-icon nav-icon" data-icon="bulb" aria-hidden="true"></span>
+            <span>Tips</span>
+          </a>
+          <a href="pantry.html">
+            <span class="k-icon nav-icon" data-icon="jar" aria-hidden="true"></span>
+            <span>Pantry</span>
+          </a>
+          <a href="forms.html">
+            <span class="k-icon nav-icon" data-icon="mail" aria-hidden="true"></span>
+            <span>Forms</span>
+          </a>
         </nav>
-        <button id="theme-button" class="theme-toggle" type="button"
-                aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
-    </div>
-</header>
-
-    <main class="recipes-page" id="main-content">
-        <!-- 1. Intro: a unique two-column hero. -->
-        <section class="recipes-hero" aria-labelledby="recipes-title">
-            <div class="recipes-hero-copy">
-                <span class="recipes-eyebrow">WELCOME TO OUR KITCHEN</span>
-                <h1 id="recipes-title">Your next favorite recipe starts here</h1>
-                <a href="#recipes-catalog" class="recipes-button">Explore recipes</a>
-                <div class="recipes-perks" aria-label="Recipe benefits">
-                    <span>Everyday ingredients</span>
-                    <span>Easy steps</span>
-                    <span>Made at home</span>
-                </div>
-            </div>
-            <img class="recipes-hero-photo"
-                 src="https://assets.epicurious.com/photos/68e9394103dbd49623da01ee/1:1/w_2560%2Cc_limit/Chap006_005_SofritoBolognese_9780063292536.jpg"
-                 alt="Fresh homemade food served with colorful vegetables" width="1100" height="880">
-        </section>
-
-        <!-- 2. Catalogue: combined jQuery search and category filters, eight recipe cards. -->
-        <section class="recipes-catalog" id="recipes-catalog" aria-labelledby="catalog-title">
-            <div class="recipes-section-title">
-                <span class="recipes-eyebrow">EXPLORE THE COLLECTION</span>
-                <h2 id="catalog-title">What are you cooking today?</h2>
-                <p>Browse eight recipes. Search by name or ingredients and filter by meal type. Select “View full recipe” for the full instructions.</p>
-            </div>
-            <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-all" value="all" checked>
-            <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-breakfast" value="breakfast">
-            <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-lunch" value="lunch">
-            <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-dinner" value="dinner">
-            <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-dessert" value="dessert">
-            <div class="recipes-filters" role="group" aria-label="Filter recipes by category">
-                <label for="recipes-all">All recipes</label>
-                <label for="recipes-breakfast">Breakfast</label>
-                <label for="recipes-lunch">Lunch</label>
-                <label for="recipes-dinner">Dinner</label>
-                <label for="recipes-dessert">Desserts</label>
-            </div>
-            <div class="recipes-search-controls">
-                <div class="recipes-search-field">
-                    <label for="recipes-search">Search recipes</label>
-                    <input type="search" id="recipes-search" placeholder="Try pasta, egg, salad..." autocomplete="off">
-                </div>
-                <button type="button" id="recipes-clear-filters" class="recipes-clear-button">Clear filters</button>
-            </div>
-            <p id="recipes-results-count" class="recipes-results-count" role="status" aria-live="polite">Showing 8 of 8 recipes</p>
-            <p id="recipes-no-results" class="recipes-no-results" hidden>No results found. Try another search or category.</p>
-            <div class="recipes-grid">
-                <article class="recipes-card" id="recipe-pancakes" data-category="breakfast">
-                    <img src="https://www.ifyougiveablondeakitchen.com/wp-content/uploads/2025/05/fluffy-buttermilk-pancakes-recipe.jpg"
-                         alt="Homemade pancakes with fruit" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Breakfast</span>
-                        <h3>Fluffy Pancakes</h3>
-                        <p>Soft golden pancakes for a cozy morning.</p>
-                        <div class="recipes-meta">
-                            <span>20 min</span>
-                            <span>Easy</span>
-                            <span>2 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>125 g all-purpose flour</li>
-                                    <li>1 tbsp sugar</li>
-                                    <li>1 tsp baking powder</li>
-                                    <li>1 egg</li>
-                                    <li>180 ml milk</li>
-                                    <li>1 tbsp melted butter, plus extra for the pan</li>
-                                    <li>Berries or honey to serve</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Combine flour, sugar and baking powder in a bowl.</li>
-                                    <li>Whisk the egg, milk and melted butter in another bowl.</li>
-                                    <li>Pour the wet ingredients into the dry ingredients and mix gently.</li>
-                                    <li>Heat a lightly buttered pan over medium heat and add small portions of batter.</li>
-                                    <li>Cook until bubbles appear, flip and cook until golden on both sides.</li>
-                                    <li>Serve warm with berries or honey.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-avocado" data-category="breakfast">
-                    <img src="https://cleananddelicious.com/wp-content/uploads/2025/01/avocado-toast.jpg"
-                         alt="Avocado toast topped with eggs" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Breakfast</span>
-                        <h3>Avocado Toast</h3>
-                        <p>Crunchy toast topped with avocado and eggs.</p>
-                        <div class="recipes-meta">
-                            <span>10 min</span>
-                            <span>Easy</span>
-                            <span>2 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>2 slices of bread</li>
-                                    <li>1 ripe avocado</li>
-                                    <li>2 eggs</li>
-                                    <li>1 tsp lemon juice</li>
-                                    <li>1 tsp olive oil</li>
-                                    <li>Salt and pepper</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Toast the bread until crisp.</li>
-                                    <li>Mash the avocado with lemon juice, salt and pepper.</li>
-                                    <li>Heat olive oil in a non-stick pan and cook the eggs to your preference.</li>
-                                    <li>Spread the avocado on the toast.</li>
-                                    <li>Add an egg to each slice and serve immediately.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-salad" data-category="lunch">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Z-IAuW_N0yLnkM9QdNBVM7Lx-IbO-Ek3Sql4U_hahegNgvTCEbTp5II&s=10"
-                         alt="Colorful bowl of fresh vegetables" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Lunch</span>
-                        <h3>Fresh Garden Salad</h3>
-                        <p>Fresh vegetables tossed in a bright lemon dressing.</p>
-                        <div class="recipes-meta">
-                            <span>15 min</span>
-                            <span>Easy</span>
-                            <span>2 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>1 cucumber</li>
-                                    <li>2 tomatoes</li>
-                                    <li>1 carrot</li>
-                                    <li>4 lettuce leaves</li>
-                                    <li>2 tbsp olive oil</li>
-                                    <li>1 tbsp lemon juice</li>
-                                    <li>Salt and pepper</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Wash and dry all the vegetables.</li>
-                                    <li>Slice the cucumber and tomatoes; grate the carrot.</li>
-                                    <li>Tear the lettuce and add it to a large bowl with the other vegetables.</li>
-                                    <li>Whisk olive oil, lemon juice, salt and pepper together.</li>
-                                    <li>Pour over the salad, toss gently and serve.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-fried-rice" data-category="lunch">
-                    <img src="https://getcookmatch.com/images/og/lagman.jpg"
-                         alt="Lagman" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Lunch</span>
-                        <h3>Lagman</h3>
-                        <p>A quick lunch using cooked rice and colorful vegetables.</p>
-                        <div class="recipes-meta">
-                            <span>45 min</span>
-                            <span>Easy</span>
-                            <span>2 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>250 g noodles</li>
-                                    <li>200 g beef</li>
-                                    <li>1 carrot</li>
-                                    <li>1/2 bell pepper</li>
-                                    <li>1/2 onion, chopped</li>
-                                    <li>1 tomato </li>
-                                    <li>2 garlic cloves</li>
-                                    <li>2 tbsp vegetable oil</li>
-                                    <li>1 tbsp tomato paste</li>
-                                    <li>Salt, pepper, and spices</li>
-                                    <li></li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Boil the noodles in salted water until tender, then drain and rinse.</li>
-                                    <li>Heat the vegetable oil in a large pan over high heat and brown the meat..</li>
-                                    <li>Add the onion and carrot, cook for 3–4 minutes, then add the bell pepper and garlic.</li>
-                                    <li>Stir in the tomato paste, tomatoes, and spices, and simmer on medium heat for about 10 minutes.</li>
-                                    <li>Place the noodles on a plate, top with the meat and vegetable sauce, and serve hot.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-baursak" data-category="breakfast">
-                    <img src="https://iapn.kz/upload/iblock/0d8/0d8f2453ea1fe779102e8a6ccf861a76.jpg"
-                         alt="Golden Kazakh baursak fried dough pieces" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Breakfast</span>
-                        <h3>Baursak</h3>
-                        <p>Soft, golden pieces of fried dough, often served with tea.</p>
-                        <div class="recipes-meta">
-                            <span>2 hr</span>
-                            <span>Medium</span>
-                            <span>8 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>500 g all-purpose flour</li>
-                                    <li>250 ml warm milk</li>
-                                    <li>7 g dry yeast</li>
-                                    <li>1 tbsp sugar</li>
-                                    <li>1 tsp salt</li>
-                                    <li>2 tbsp vegetable oil</li>
-                                    <li>Vegetable oil for deep-frying</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Mix the warm milk, yeast and sugar. Leave for 10 minutes until foamy.</li>
-                                    <li>Add the flour, salt and 2 tablespoons of oil. Knead into a soft dough.</li>
-                                    <li>Cover and leave in a warm place for 60–90 minutes until the dough rises.</li>
-                                    <li>Roll the dough to about 1 cm thick and cut into small squares or diamonds.</li>
-                                    <li>Let the pieces rest for 10 minutes while heating frying oil to about 175°C.</li>
-                                    <li>Fry in batches until golden on both sides. Drain on paper towels and serve warm.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-shelpek" data-category="breakfast">
-                    <img src="https://img.iamcook.ru/old/upl/recipes/cat/u-bb00f439c0838b5ca7273407fbbe7254.jpg"
-                         alt="Traditional Kazakh shelpek flatbread" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Breakfast</span>
-                        <h3>Shelpek</h3>
-                        <p>Thin fried flatbreads served warm with tea or honey.</p>
-                        <div class="recipes-meta">
-                            <span>45 min</span>
-                            <span>Easy</span>
-                            <span>7 flatbreads</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>400 g all-purpose flour</li>
-                                    <li>200 ml warm water or milk</li>
-                                    <li>1 tsp salt</li>
-                                    <li>1 tbsp vegetable oil for the dough</li>
-                                    <li>Vegetable oil for frying</li>
-                                    <li>Honey or butter to serve (optional)</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Combine the flour and salt in a bowl.</li>
-                                    <li>Add the warm water or milk and a tablespoon of oil. Knead until smooth.</li>
-                                    <li>Cover the dough and let it rest for 20 minutes.</li>
-                                    <li>Divide it into seven pieces and roll each piece into a thin circle.</li>
-                                    <li>Heat a little oil in a frying pan and cook each flatbread on both sides until lightly golden.</li>
-                                    <li>Drain briefly and serve warm.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-beshbarmak" data-category="lunch">
-                    <img src="https://i.pinimg.com/736x/cb/19/41/cb1941af26d7bb88349c5641f69ae9c1.jpg"
-                         alt="Kazakh beshbarmak with boiled meat and broad noodles" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Lunch</span>
-                        <h3>Beshbarmak</h3>
-                        <p>Tender meat over wide homemade noodles with onion broth.</p>
-                        <div class="recipes-meta">
-                            <span>3 hr 30 min</span>
-                            <span>Medium</span>
-                            <span>6 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>1.5 kg beef or lamb on the bone</li>
-                                    <li>400 g all-purpose flour</li>
-                                    <li>1 egg</li>
-                                    <li>150 ml water for the dough</li>
-                                    <li>3 onions</li>
-                                    <li>3 litres water for the broth</li>
-                                    <li>Salt and black pepper</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Put the meat in a large pot of cold water and bring to a boil. Skim the foam.</li>
-                                    <li>Add one onion and salt, then simmer for 2–3 hours until the meat is tender. Keep the broth.</li>
-                                    <li>Knead the flour, egg, 150 ml water and a little salt into a firm dough. Rest for 30 minutes.</li>
-                                    <li>Roll the dough thinly and cut it into large squares or wide strips.</li>
-                                    <li>Slice the remaining onions and soften them in a little hot broth with black pepper.</li>
-                                    <li>Boil the dough pieces in the meat broth until cooked.</li>
-                                    <li>Arrange the noodles on a platter, add sliced meat and onions, and serve with broth on the side.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="recipes-card" id="recipe-kuyrdak" data-category="dinner">
-                    <img src="https://magnum.kz:1337/uploads/Kuyrdak_5dac8afe42.jpg"
-                         alt="Traditional Kazakh kuyrdak being cooked" loading="lazy" width="720" height="480">
-                    <div class="recipes-card-body">
-                        <span class="recipes-tag">Dinner</span>
-                        <h3>Kuyrdak</h3>
-                        <p>Pan-fried lamb, liver, potatoes and onions.</p>
-                        <div class="recipes-meta">
-                            <span>1 hr</span>
-                            <span>Medium</span>
-                            <span>4 servings</span>
-                        </div>
-                        <details class="recipes-details">
-                            <summary>View full recipe</summary>
-                            <div class="recipes-details-body">
-                                <h4>Ingredients</h4>
-                                <ul>
-                                    <li>400 g lamb, diced</li>
-                                    <li>200 g lamb or beef liver, diced</li>
-                                    <li>3 medium potatoes</li>
-                                    <li>2 onions</li>
-                                    <li>2 tbsp vegetable oil or rendered fat</li>
-                                    <li>100 ml water or broth</li>
-                                    <li>Salt and black pepper</li>
-                                </ul>
-                                <h4>Instructions</h4>
-                                <ol>
-                                    <li>Cut the lamb, liver and potatoes into bite-sized pieces; slice the onions.</li>
-                                    <li>Heat the oil or fat in a large pan and brown the lamb.</li>
-                                    <li>Add the onions and cook until they begin to soften.</li>
-                                    <li>Add the potatoes and broth. Cover and simmer until the potatoes and lamb are nearly tender.</li>
-                                    <li>Add the liver near the end and cook it thoroughly, stirring gently.</li>
-                                    <li>Season with salt and pepper. Serve hot.</li>
-                                </ol>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 3. Featured section: extra advice instead of repeating the pasta method. -->
-        <section class="recipes-featured" aria-labelledby="featured-title">
-            <div class="recipes-section-title">
-                <span class="recipes-eyebrow">FEATURED RECIPE & COOKING ADVICE</span>
-                <h2 id="featured-title">Pasta Love: Little Tips, Big Flavor</h2>
-                <p>Our featured pasta deserves a little extra attention. Try these three chef's tips to bring more flavor and a smoother texture to your next dinner.</p>
-            </div>
-            <div class="recipes-featured-layout">
-                <img class="recipes-featured-photo"
-                     src="https://www.recipetineats.com/tachyon/2019/09/Creamy-Mushroom-Pasta_4.jpg"
-                     alt="Pasta ready to serve" loading="lazy" width="1000" height="800">
-                <div class="recipes-featured-copy">
-                    <span class="recipes-tag">Dinner · 25 minutes</span>
-                    <h3>Creamy Mushroom Pasta</h3>
-                    <p>The full recipe is in the Dinner section above. Here are three extra cooking tips to make your pasta taste even better.</p>
-                    <h4>Chef's tips</h4>
-                    <div class="recipes-tip-grid">
-                        <article class="recipes-tip">
-                            <span>01</span>
-                            <h5>Brown the mushrooms</h5>
-                            <p>Cook them in a hot pan without crowding them so they develop a rich, savory flavor.</p>
-                        </article>
-                        <article class="recipes-tip">
-                            <span>02</span>
-                            <h5>Save pasta water</h5>
-                            <p>Add a little starchy cooking water when mixing the pasta and sauce for a smoother finish.</p>
-                        </article>
-                        <article class="recipes-tip">
-                            <span>03</span>
-                            <h5>Finish on low heat</h5>
-                            <p>Once you add the cream, keep the heat gentle so the sauce stays silky.</p>
-                        </article>
-                    </div>
-                    <p class="recipes-serving"><strong>Serving idea:</strong> Add fresh parsley, black pepper and a little grated cheese just before serving.</p>
-                    <a class="recipes-text-link" href="#recipes-catalog">Back to the recipe catalogue ↑</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Shared footer: keep the team's existing design. -->
-    <footer>
-        <div class="container footer-content">
-            <h2>CookFromHome</h2>
-            <p>Cook by yourself :3</p>
+        <button id="theme-button" class="theme-toggle btn btn--quiet btn--sm" type="button" aria-pressed="false" aria-label="Switch to dark theme">Dark theme</button>
+      </div>
+    </header>
+    <main class="recipes-page site-content" id="main-content">
+      <section class="page-intro">
+        <div class="intro-title">
+          <span class="icon-tile page-mark">
+            <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+          </span>
+          <div>
+            <span class="eyebrow">The recipe collection</span>
+            <h1>Recipes</h1>
+          </div>
         </div>
+        <p>From a plate of manti to baursak with tea. Find something you want to cook today.</p>
+      </section>
+      <p id="recipe-pick-feedback" class="catalog-note" role="status">
+        <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+        Save a dish with the notebook button. Find your choices in Cook next.
+      </p>
+      <section class="recipes-catalog" id="recipes-catalog" aria-label="Recipe catalogue">
+        <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-all" value="all" checked />
+        <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-breakfast" value="breakfast" />
+        <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-lunch" value="lunch" />
+        <input class="recipes-radio" type="radio" name="meal-filter" id="recipes-dinner" value="dinner" />
+        <div class="recipes-filters" role="group" aria-label="Filter recipes by category">
+          <label for="recipes-all">All recipes</label>
+          <label for="recipes-breakfast">Breakfast</label>
+          <label for="recipes-lunch">Lunch</label>
+          <label for="recipes-dinner">Dinner</label>
+        </div>
+        <div class="recipes-search-controls">
+          <div class="recipes-search-field">
+            <label for="recipes-search">Search recipes</label>
+            <input type="search" id="recipes-search" maxlength="200" aria-describedby="recipe-search-help" placeholder="e.g. baursak, egg, potatoes" autocomplete="off" />
+          </div>
+          <button type="button" id="recipes-clear-filters" class="btn btn--quiet btn--sm">Clear filters</button>
+        </div>
+        <p id="recipe-search-help" class="search-help">Separate ingredients with commas. Recipes can match any listed ingredient.</p>
+        <p id="recipes-results-count" class="recipes-results-count" role="status" aria-live="polite">Showing 8 of 8 recipes</p>
+        <p id="recipes-no-results" class="recipes-no-results" hidden>No results found. Try another search or category.</p>
+        <div class="recipes-grid">
+          <article class="recipes-card panel" id="recipe-manti" data-category="dinner">
+            <img src="images/recipes/recipe-manti.jpg" alt="Steamed manti served with vegetables" width="1024" height="680" fetchpriority="high" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="manti" aria-pressed="false" aria-label="Save Manti to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Dinner</span>
+              <h2>Manti</h2>
+              <p>Steamed dumplings filled with beef and finely chopped onion.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  1 hr 30 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Medium
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  4 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Manti recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-1">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-1" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>400 g flour</li>
+                  <li>1 egg</li>
+                  <li>150 ml water, plus a little if needed</li>
+                  <li>500 g minced beef or lamb</li>
+                  <li>3 onions, finely chopped</li>
+                  <li>2 tbsp oil, for greasing</li>
+                  <li>Salt and black pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Mix the flour, egg, water and a pinch of salt into a firm dough. Knead until smooth, cover and rest for 30 minutes.</li>
+                  <li>Combine the meat with the chopped onions, salt, pepper and 3 tablespoons of water.</li>
+                  <li>Roll the dough thinly and cut into 10 cm squares. Divide the filling between them, then pinch the corners together to seal.</li>
+                  <li>Grease the steamer trays and arrange the dumplings with space between them.</li>
+                  <li>Steam over boiling water for 40–45 minutes, until the filling is thoroughly cooked. Serve hot.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-samsa" data-category="lunch">
+            <img src="images/recipes/recipe-samsa.jpg" alt="Golden baked samsa pastries with sesame seeds" width="1024" height="680" loading="lazy" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="samsa" aria-pressed="false" aria-label="Save Samsa to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Lunch</span>
+              <h2>Samsa</h2>
+              <p>Oven-baked pastry with a juicy beef and onion filling.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  55 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Easy
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  8 pastries
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Samsa recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-2">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-2" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>500 g ready-made puff pastry, thawed</li>
+                  <li>350 g minced beef or lamb</li>
+                  <li>2 onions, finely chopped</li>
+                  <li>1 tsp ground cumin</li>
+                  <li>1 egg, beaten</li>
+                  <li>1 tbsp sesame seeds</li>
+                  <li>Salt and black pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Heat the oven to 200°C. Line a baking tray with baking paper.</li>
+                  <li>Mix the meat, chopped onions, cumin, salt and pepper.</li>
+                  <li>Roll out the pastry and cut into 8 squares. Put filling in the centre of each square.</li>
+                  <li>Fold into triangles and press the edges firmly to seal. Place seam-side down on the tray.</li>
+                  <li>Brush with beaten egg and sprinkle with sesame seeds. Bake for 30–35 minutes, until golden and the meat is thoroughly cooked.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-plov" data-category="lunch">
+            <img src="images/recipes/recipe-plov.jpg" alt="Plov rice with meat and carrots on a serving plate" width="1024" height="680" loading="lazy" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="plov" aria-pressed="false" aria-label="Save Plov to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Lunch</span>
+              <h2>Plov</h2>
+              <p>Rice cooked with tender beef, carrots, garlic and cumin.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  1 hr 20 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Medium
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  4 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Plov recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-3">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-3" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>350 g long-grain rice</li>
+                  <li>500 g beef, cut into pieces</li>
+                  <li>400 g carrots, cut into sticks</li>
+                  <li>2 onions, sliced</li>
+                  <li>1 whole garlic bulb</li>
+                  <li>60 ml vegetable oil</li>
+                  <li>1 tsp cumin seeds</li>
+                  <li>Salt and black pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Rinse the rice until the water runs mostly clear. Soak it while preparing the other ingredients.</li>
+                  <li>Heat the oil in a heavy pot. Brown the beef, then add the onions and cook until golden.</li>
+                  <li>Add the carrots, cumin, salt and pepper. Pour in enough hot water to cover the meat and simmer for 35–40 minutes.</li>
+                  <li>Drain the rice and spread it evenly over the meat without stirring. Add the whole garlic bulb and enough hot water to sit about 1 cm above the rice.</li>
+                  <li>Cook uncovered until the surface water is absorbed. Cover, turn the heat very low and cook for 20 minutes. Rest off the heat for 10 minutes, then mix gently.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-lagman" data-category="lunch">
+            <div class="recipe-photo-empty">Photo to be added</div>
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="lagman" aria-pressed="false" aria-label="Save Lagman to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Lunch</span>
+              <h2>Lagman</h2>
+              <p>Noodles with beef, vegetables and a tomato sauce.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  45 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Easy
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  2 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Lagman recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-4">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-4" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>250 g noodles</li>
+                  <li>200 g beef</li>
+                  <li>1 carrot</li>
+                  <li>1/2 bell pepper</li>
+                  <li>1/2 onion, chopped</li>
+                  <li>1 tomato</li>
+                  <li>2 garlic cloves</li>
+                  <li>2 tbsp vegetable oil</li>
+                  <li>1 tbsp tomato paste</li>
+                  <li>Salt, pepper, and spices</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Boil the noodles in salted water until tender, then drain and rinse.</li>
+                  <li>Heat the vegetable oil in a large pan over high heat and brown the meat.</li>
+                  <li>Add the onion and carrot, cook for 3–4 minutes, then add the bell pepper and garlic.</li>
+                  <li>Stir in the tomato paste, tomatoes, and spices, and simmer on medium heat for about 10 minutes.</li>
+                  <li>Place the noodles on a plate, top with the meat and vegetable sauce, and serve hot.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-baursak" data-category="breakfast">
+            <img src="images/recipes/recipe-baursak.jpg" alt="Golden Kazakh baursak fried dough pieces" loading="lazy" width="720" height="480" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="baursak" aria-pressed="false" aria-label="Save Baursak to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Breakfast</span>
+              <h2>Baursak</h2>
+              <p>Soft, golden pieces of fried dough, often served with tea.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  2 hr
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Medium
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  8 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Baursak recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-5">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-5" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>500 g all-purpose flour</li>
+                  <li>250 ml warm milk</li>
+                  <li>7 g dry yeast</li>
+                  <li>1 tbsp sugar</li>
+                  <li>1 tsp salt</li>
+                  <li>2 tbsp vegetable oil</li>
+                  <li>Vegetable oil for deep-frying</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Mix the warm milk, yeast and sugar. Leave for 10 minutes until foamy.</li>
+                  <li>Add the flour, salt and 2 tablespoons of oil. Knead into a soft dough.</li>
+                  <li>Cover and leave in a warm place for 60–90 minutes until the dough rises.</li>
+                  <li>Roll the dough to about 1 cm thick and cut into small squares or diamonds.</li>
+                  <li>Let the pieces rest for 10 minutes while heating frying oil to about 175°C.</li>
+                  <li>Fry in batches until golden on both sides. Drain on paper towels and serve warm.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-shelpek" data-category="breakfast">
+            <img src="images/recipes/recipe-shelpek.jpg" alt="Traditional Kazakh shelpek flatbread" loading="lazy" width="720" height="480" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="shelpek" aria-pressed="false" aria-label="Save Shelpek to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Breakfast</span>
+              <h2>Shelpek</h2>
+              <p>Thin fried flatbreads served warm with tea or honey.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  45 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Easy
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  7 flatbreads
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Shelpek recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-6">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-6" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>400 g all-purpose flour</li>
+                  <li>200 ml warm water or milk</li>
+                  <li>1 tsp salt</li>
+                  <li>1 tbsp vegetable oil for the dough</li>
+                  <li>Vegetable oil for frying</li>
+                  <li>Honey or butter to serve (optional)</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Combine the flour and salt in a bowl.</li>
+                  <li>Add the warm water or milk and a tablespoon of oil. Knead until smooth.</li>
+                  <li>Cover the dough and let it rest for 20 minutes.</li>
+                  <li>Divide it into seven pieces and roll each piece into a thin circle.</li>
+                  <li>Heat a little oil in a frying pan and cook each flatbread on both sides until lightly golden.</li>
+                  <li>Drain briefly and serve warm.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-beshbarmak" data-category="lunch">
+            <img src="images/recipes/recipe-beshbarmak.jpg" alt="Kazakh beshbarmak with boiled meat and broad noodles" loading="lazy" width="720" height="480" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="beshbarmak" aria-pressed="false" aria-label="Save Beshbarmak to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Lunch</span>
+              <h2>Beshbarmak</h2>
+              <p>Tender meat over wide homemade noodles with onion broth.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  3 hr 30 min
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Medium
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  6 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Beshbarmak recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-7">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-7" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>1.5 kg beef or lamb on the bone</li>
+                  <li>400 g all-purpose flour</li>
+                  <li>1 egg</li>
+                  <li>150 ml water for the dough</li>
+                  <li>3 onions</li>
+                  <li>3 litres water for the broth</li>
+                  <li>Salt and black pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Put the meat in a large pot of cold water and bring to a boil. Skim the foam.</li>
+                  <li>Add one onion and salt, then simmer for 2–3 hours until the meat is tender. Keep the broth.</li>
+                  <li>Knead the flour, egg, 150 ml water and a little salt into a firm dough. Rest for 30 minutes.</li>
+                  <li>Roll the dough thinly and cut it into large squares or wide strips.</li>
+                  <li>Slice the remaining onions and soften them in a little hot broth with black pepper.</li>
+                  <li>Boil the dough pieces in the meat broth until cooked.</li>
+                  <li>Arrange the noodles on a platter, add sliced meat and onions, and serve with broth on the side.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+          <article class="recipes-card panel" id="recipe-kuyrdak" data-category="dinner">
+            <img src="images/recipes/recipe-kuyrdak.jpg" alt="Traditional Kazakh kuyrdak being cooked" loading="lazy" width="720" height="480" />
+            <button type="button" class="btn btn--quiet btn--icon btn--sm recipe-pin" data-pick="kuyrdak" aria-pressed="false" aria-label="Save Kuyrdak to Cook next" title="Save to Cook next">
+              <span class="k-icon" data-icon="note" aria-hidden="true"></span>
+            </button>
+            <div class="recipes-card-body">
+              <span class="recipes-tag">Dinner</span>
+              <h2>Kuyrdak</h2>
+              <p>Pan-fried lamb, liver, potatoes and onions.</p>
+              <div class="recipes-meta">
+                <span>
+                  <span class="k-icon" data-icon="clock" aria-hidden="true"></span>
+                  1 hr
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="hat" aria-hidden="true"></span>
+                  Medium
+                </span>
+                <span>
+                  <span class="k-icon" data-icon="users" aria-hidden="true"></span>
+                  4 servings
+                </span>
+              </div>
+              <button class="recipe-toggle btn btn--row" aria-label="View Kuyrdak recipe" type="button" aria-expanded="false" aria-controls="recipe-instructions-8">
+                View recipe
+                <span aria-hidden="true">+</span>
+              </button>
+              <div class="recipes-details-body" id="recipe-instructions-8" hidden>
+                <h3>Ingredients</h3>
+                <ul>
+                  <li>400 g lamb, diced</li>
+                  <li>200 g lamb or beef liver, diced</li>
+                  <li>3 medium potatoes</li>
+                  <li>2 onions</li>
+                  <li>2 tbsp vegetable oil or rendered fat</li>
+                  <li>100 ml water or broth</li>
+                  <li>Salt and black pepper</li>
+                </ul>
+                <h3>Instructions</h3>
+                <ol>
+                  <li>Cut the lamb, liver and potatoes into bite-sized pieces; slice the onions.</li>
+                  <li>Heat the oil or fat in a large pan and brown the lamb.</li>
+                  <li>Add the onions and cook until they begin to soften.</li>
+                  <li>Add the potatoes and broth. Cover and simmer until the potatoes and lamb are nearly tender.</li>
+                  <li>Add the liver near the end and cook it thoroughly, stirring gently.</li>
+                  <li>Season with salt and pepper. Serve hot.</li>
+                </ol>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <h2>CookFromHome</h2>
+        <p>Cook by yourself :3</p>
+      </div>
     </footer>
-    <!-- jQuery must load before the external script. Both scripts are deferred. -->
     <script src="js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="js/recipes-jquery.js"></script>
-    <script src="js/site.js"></script>
-</body>
+    <script src="js/core/storage.js"></script>
+    <script src="js/components/cook-next.js"></script>
+    <script src="js/pages/recipes.js"></script>
+  </body>
 </html>

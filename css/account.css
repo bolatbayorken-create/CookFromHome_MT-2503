@@ -1,0 +1,71 @@
+/* Страницы регистрации, входа и профиля */
+
+.account-layout {
+  padding-bottom: 32px;
+}
+
+.account-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.account-tabs a[aria-current='page'] {
+  background: var(--sage);
+  border-color: var(--edge);
+}
+
+.account-card {
+  max-width: 650px;
+  margin: 0 auto 12px;
+  padding: 28px;
+}
+
+.account-card h2 {
+  margin-bottom: 10px;
+}
+
+.account-card > p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.account-card .form-field {
+  margin-bottom: 20px;
+}
+
+.account-card .alert {
+  margin-top: 18px;
+}
+
+.account-footer {
+  margin: 20px 0 0;
+  font-size: 14px;
+}
+
+.profile-list {
+  margin: 24px 0;
+}
+
+.profile-list dt {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.profile-list dd {
+  margin: 4px 0 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .account-card {
+    padding: 20px;
+  }
+
+  .account-tabs {
+    gap: 8px;
+  }
+}

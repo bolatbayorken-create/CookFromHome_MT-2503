@@ -1,0 +1,307 @@
+/* Главная: приветствие, поиск и блоки навигации */
+
+.home-card-title a:hover {
+  color: var(--green);
+}
+
+/* Главный экран */
+
+.home-hero {
+  padding: 55px 0 45px;
+}
+
+.home-hero-content {
+  display: grid;
+  grid-template-columns: 1.03fr 1fr;
+  align-items: center;
+  gap: clamp(35px, 6vw, 90px);
+}
+
+.home-title {
+  letter-spacing: -3px;
+  line-height: 1.06;
+  margin: 22px 0;
+}
+
+.home-subtitle {
+  max-width: 380px;
+  color: var(--muted);
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+.home-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.home-input-group,
+.home-welcome-inputs {
+  display: flex;
+  gap: 8px;
+}
+
+.home-input-group button,
+.home-welcome button {
+  flex: none;
+}
+
+.home-input-group input {
+  min-width: 0;
+}
+
+/* Приветствие */
+
+.home-welcome {
+  margin-top: 24px;
+  padding-top: 21px;
+  border-top: 1px solid var(--line);
+}
+
+.home-welcome-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.home-welcome-row > label {
+  flex: 0 0 74px;
+}
+
+.home-welcome-inputs {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-card-text,
+.home-welcome-inputs input {
+  font-size: 13px;
+}
+
+#welcome-message {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 8px 0 0 88px;
+}
+
+/* Фото блюда */
+
+.home-photo {
+  margin: 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-photo > img {
+  display: block;
+  width: 100%;
+  min-height: 390px;
+  height: 100%;
+  max-height: 510px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.home-photo figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  background: var(--surface);
+  padding: 20px 24px;
+  border-radius: 0 0 8px 8px;
+}
+
+.home-photo strong {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.home-photo figcaption a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.home-photo figcaption a span {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.home-benefits {
+  padding: 22px 0 35px;
+}
+
+.home-section-title {
+  margin: 0 0 21px;
+}
+
+.home-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+}
+
+.home-card-title {
+  margin-bottom: 12px;
+}
+
+.home-card-title a {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.home-card-title span {
+  color: var(--green);
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.home-card-text {
+  max-width: 320px;
+  color: var(--muted);
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .home-hero-content {
+    gap: 32px;
+  }
+
+  .home-welcome-row {
+    display: block;
+  }
+
+  .home-welcome-row > label {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  #welcome-message {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-benefits-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-hero {
+    padding: 33px 0 30px;
+  }
+
+  .home-hero-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .home-title {
+    font-size: 53px;
+    letter-spacing: -2px;
+    margin: 18px 0;
+  }
+
+  .home-subtitle {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+
+  .home-photo > img {
+    min-height: 0;
+    height: 280px;
+  }
+
+  .home-photo figcaption {
+    padding: 17px 20px;
+  }
+
+  .home-benefits-grid {
+    gap: 24px;
+  }
+
+  .home-benefit-card {
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 370px) {
+  .home-input-group {
+    flex-direction: column;
+  }
+
+  .home-title {
+    font-size: 46px;
+  }
+}
+
+.home-benefit-card {
+  padding: 23px;
+}
+
+.home-doodles {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 18px;
+  color: var(--green);
+}
+
+.home-doodles .k-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.home-doodles .k-icon:nth-child(2) {
+  transform: rotate(-17deg);
+  width: 23px;
+  height: 23px;
+}
+
+.home-doodles .k-icon:nth-child(3) {
+  transform: rotate(15deg);
+  width: 26px;
+  height: 26px;
+}
+
+.home-hero {
+  padding-top: 38px;
+}
+
+.home-title {
+  font-size: clamp(42px, 5vw, 67px);
+}
+
+.home-card-icon {
+  margin-bottom: 17px;
+}
+
+.home-card-title {
+  font-size: 21px;
+}
+
+@media (max-width: 600px) {
+  .home-benefit-card {
+    padding: 22px;
+  }
+
+  .home-title {
+    font-size: 49px;
+  }
+}
+
+.home-page .site-content .container {
+  width: 100%;
+}
+
+.home-section-title {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink);
+}
